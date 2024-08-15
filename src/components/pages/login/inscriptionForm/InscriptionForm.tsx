@@ -3,14 +3,18 @@ import styled from "styled-components";
 export default function InscriptionForm() {
   return (
     <InscriptionFormStyled>
-        <div className="container">
-            <h1>Inscription</h1>    
-            <input type="name"></input>
-            <input type="password"></input>
-            <button>S'inscrire</button>
-        </div>
+      <div className="container">
+        <h1>Inscription</h1>
+        <p>Nom :</p>
+        <input type="name" placeholder="Nom"></input>
+        <p>Date de naissance :</p>
+        <input type="date"></input>
+        <p>Mot de passe :</p>
+        <input type="password" placeholder="Mot de passe"></input>
+        <button>S'inscrire</button>
+      </div>
     </InscriptionFormStyled>
-  )
+  );
 }
 
 const InscriptionFormStyled = styled.div`
@@ -24,10 +28,19 @@ const InscriptionFormStyled = styled.div`
     width: 500px;
     height: 600px;
     border: 1px solid black;
+    border-radius: 15px;
     position: relative;
     overflow-y: hidden;
     display: flex;
     flex-direction: column;
+    align-items: center;
+  }
+  h1 {
+    font-size: 40px;
+    color: white;
+    font-weight: 1000;
+    text-decoration: underline #528a177e;
+    -webkit-text-stroke: 2px #3755167d;
   }
   button {
     padding: 15px;
@@ -36,6 +49,7 @@ const InscriptionFormStyled = styled.div`
     border: 1px solid white;
     border-radius: 5px;
     color: white;
+    margin-top: 100px;
     &:hover {
       background-color: white;
       color: #3755167d;
@@ -44,8 +58,10 @@ const InscriptionFormStyled = styled.div`
       transition: 0.3s;
     }
   }
-  input{
-    width: 240px;
+  input {
+    width: 300px;
+    height: 25px;
     padding: 5px;
+    border-radius: 5px;
   }
 `;
