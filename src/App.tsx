@@ -1,11 +1,10 @@
-import './App.css';
+import LoginPage from "./components/pages/login/LoginPage";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <h1>TaskSync !</h1>
+    <div>
+      <LoginPage/>
     </div>
   );
 }
 
-export default App;
