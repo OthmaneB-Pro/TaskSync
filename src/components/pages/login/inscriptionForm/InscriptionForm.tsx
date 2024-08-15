@@ -61,6 +61,7 @@ const InscriptionFormStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  
   .container {
     background-color: white;
     width: 500px;
@@ -72,6 +73,12 @@ const InscriptionFormStyled = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    animation-duration: 0.3s;
+  animation-name: animate-fade;
+  @keyframes animate-fade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
   }
   h1 {
     font-size: 40px;
