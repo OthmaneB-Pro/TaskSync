@@ -14,8 +14,8 @@ export default function LoginForm() {
         votre quotidien avec TaskSync !
       </p>
       <p>Connectez-vous ! Pas encore de compte ? Inscrivez-vous</p>
-     <button onClick={() => navigate("/")}>S'inscrire</button>
-    <button onClick={() => navigate("/")}>Se connecter</button>
+     <button onClick={() => navigate("/inscriptionForm")}>S'inscrire</button>
+    <button onClick={() => navigate("/loginForm")}>Se connecter</button>
     </LoginFormStyled>
   );
 }

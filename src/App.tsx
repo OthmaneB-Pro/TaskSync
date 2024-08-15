@@ -8,8 +8,8 @@ export default function App() {
     <BrowserRouter>
     <Routes>
       <Route path={"/login"} element={<LoginPage/>} />
-      <Route path={"/login/inscriptionForm"} element={<InscriptionForm/>} />
-      <Route path={"/login/loginForm"} element={<LoginForm/>} />
+      <Route path={"/inscriptionForm"} element={<InscriptionForm/>} />
+      <Route path={"/loginForm"} element={<LoginForm/>} />
 
       </Routes>
     </BrowserRouter>
