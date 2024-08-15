@@ -1,17 +1,55 @@
+import { useState } from "react";
+import { useNavigate } from "react-router";
 import styled from "styled-components";
 
 export default function InscriptionForm() {
+  const [user, setUser] = useState({
+    username: "",
+    password: "",
+    date: "",
+  });
+  const navigate = useNavigate()
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    event.preventDefault();
+    navigate(`/login/${user.username}`)
+  };
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setUser((prevValues) => ({ ...prevValues, [name]: value }));
+  };
+
   return (
     <InscriptionFormStyled>
       <div className="container">
         <h1>Inscription</h1>
-        <p>Nom :</p>
-        <input type="name" placeholder="Nom"></input>
-        <p>Date de naissance :</p>
-        <input type="date"></input>
-        <p>Mot de passe :</p>
-        <input type="password" placeholder="Mot de passe"></input>
-        <button>S'inscrire</button>
+        <form action="submit">
+          <p>Nom :</p>
+          <input
+            value={user.username}
+            name="username"
+            type="name"
+            placeholder="Nom"
+            onChange={handleChange}
+          ></input>
+          <p>Date de naissance :</p>
+          <input
+            value={user.date}
+            name="date"
+            type="date"
+            onChange={handleChange}
+          ></input>
+          <p>Mot de passe :</p>
+          <input
+            value={user.password}
+            name="password"
+            type="password"
+            placeholder="Mot de passe"
+            onChange={handleChange}
+          ></input>
+          <button onClick={handleClick}>S'inscrire</button>
+        </form>
       </div>
     </InscriptionFormStyled>
   );
@@ -42,6 +80,9 @@ const InscriptionFormStyled = styled.div`
     text-decoration: underline #528a177e;
     -webkit-text-stroke: 2px #3755167d;
   }
+  p {
+    font-weight: 700;
+  }
   button {
     padding: 15px;
     width: 200px;
@@ -63,5 +104,10 @@ const InscriptionFormStyled = styled.div`
     height: 25px;
     padding: 5px;
     border-radius: 5px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;
