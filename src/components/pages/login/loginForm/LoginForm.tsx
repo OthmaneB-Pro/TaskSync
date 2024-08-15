@@ -1,18 +1,16 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 export default function LoginForm() {
+    const navigate = useNavigate()
+
   return (
     <LoginFormStyled>
       <h1>Bienvenue sur TaskSync !</h1>
-      <p>
-        Votre solution tout-en-un pour organiser et synchroniser vos tâches.
-        Gérez facilement vos projets, suivez vos progrès et collaborez en temps
-        réel, le tout depuis un seul endroit. Restez productif et simplifiez
-        votre quotidien avec TaskSync !
-      </p>
+     
       <p>Connectez-vous ! Pas encore de compte ? Inscrivez-vous</p>
-      <button>S'inscrire</button>
-      <button>Se connecter</button>
+     <button onClick={() => navigate("/")}>S'inscrire</button>
+    <button onClick={() => navigate("/")}>Se connecter</button>
     </LoginFormStyled>
   );
 }

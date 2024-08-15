@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import LoginForm from "./LoginForm";
+import WelcomePage from "./WelcomePage";
 
 export default function LoginPage() {
   return (
     <LoginPageStyled>
       <div className="container">
-        <LoginForm />
+        <WelcomePage />
         <img src="/img/ToDo.png" alt="toDo-Tableau" />
       </div>
     </LoginPageStyled>
