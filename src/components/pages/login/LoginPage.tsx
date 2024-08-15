@@ -6,7 +6,6 @@ export default function LoginPage() {
     <LoginPageStyled>
       <div className="container">
         <WelcomePage />
-        <img src="/img/ToDo.png" alt="toDo-Tableau" />
       </div>
     </LoginPageStyled>
   );
@@ -20,7 +19,7 @@ const LoginPageStyled = styled.div`
   align-items: center;
   .container {
     background-color: white;
-    width: 1400px;
+    width: 800px;
     height: 600px;
     border-radius: 15px;
     border: 1px solid black;

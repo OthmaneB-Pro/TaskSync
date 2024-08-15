@@ -21,21 +21,26 @@ export default function LoginForm() {
 }
 
 const LoginFormStyled = styled.div`
-margin-left: 30px;
-margin-top: 36px;
+margin-left: 120px;
+margin-top: 50px;
 width: 500px;
 text-align: center;
 border: 2px solid #3755167d;
-padding: 20px 20px 193px 20px;
+padding: 20px 20px 82px 20px;
 border-radius: 10px;
-background-color: #c5e99f9b;
 
   h1 {
     margin-bottom: 35px;
+    font-size: 40px;
+    color: white;
+    font-weight: 1000;
+    text-decoration: underline #528a177e;
+    -webkit-text-stroke: 2px #3755167d;
   }
 
   button {
     padding: 15px;
+    margin-top: 110px;
     width: 200px;
     background-color: #3755167d;
     border: 1px solid white;
