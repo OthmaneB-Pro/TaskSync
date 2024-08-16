@@ -24,12 +24,5 @@ const LoginPageStyled = styled.div`
     border-radius: 15px;
     position: relative;
     overflow-y: hidden;
-
-    img {
-      width: 760px;
-      position: absolute;
-      bottom: 60px;
-      left: 600px;
-    }
   }
 `;

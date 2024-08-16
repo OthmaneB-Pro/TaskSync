@@ -74,7 +74,7 @@ const AuthFormStyled = styled.div`
 
   .container {
     background-color: white;
-    width: 500px;
+    width: 500px !important;
     height: 600px;
     border: 1px solid black;
     border-radius: 15px;
