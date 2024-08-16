@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
+import InputText from "../../../reusable-ui/InputText";
 
 export default function InscriptionForm() {
   const [user, setUser] = useState({
@@ -26,28 +27,29 @@ export default function InscriptionForm() {
         <h1>Inscription</h1>
         <form action="submit">
           <p>Nom :</p>
-          <input
+          <InputText
             value={user.username}
             name="username"
             type="name"
             placeholder="Nom"
             onChange={handleChange}
-          ></input>
+          />
           <p>Date de naissance :</p>
-          <input
+          <InputText
             value={user.date}
             name="date"
             type="date"
+            placeholder="date"
             onChange={handleChange}
-          ></input>
+          />
           <p>Mot de passe :</p>
-          <input
+          <InputText
             value={user.password}
             name="password"
             type="password"
             placeholder="Mot de passe"
             onChange={handleChange}
-          ></input>
+          />
           <button onClick={handleClick}>S'inscrire</button>
         </form>
       </div>
@@ -57,14 +59,13 @@ export default function InscriptionForm() {
 
 const InscriptionFormStyled = styled.div`
   background-color: #528a177e;
-  height: 100vh;
+  border: none !important;
   display: flex;
   justify-content: center;
-  align-items: center;
   
   .container {
     background-color: white;
-    width: 500px;
+    width: 500px !important;
     height: 600px;
     border: 1px solid black;
     border-radius: 15px;
@@ -98,6 +99,7 @@ const InscriptionFormStyled = styled.div`
     border-radius: 5px;
     color: white;
     margin-top: 100px;
+    font-size: 16px;
     &:hover {
       background-color: white;
       color: #3755167d;
@@ -106,12 +108,7 @@ const InscriptionFormStyled = styled.div`
       transition: 0.3s;
     }
   }
-  input {
-    width: 300px;
-    height: 25px;
-    padding: 5px;
-    border-radius: 5px;
-  }
+  
   form {
     display: flex;
     flex-direction: column;
