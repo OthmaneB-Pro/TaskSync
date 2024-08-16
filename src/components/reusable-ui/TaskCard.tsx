@@ -62,9 +62,10 @@ const CardStyled = styled.div`
   border-radius: 8px;
   padding: 15px;
   margin: 10px;
-  width: 300px;
+  width: 317px;
   cursor: pointer;
   transition: box-shadow 0.3s ease;
+  
 
   .task-header {
     h3 {

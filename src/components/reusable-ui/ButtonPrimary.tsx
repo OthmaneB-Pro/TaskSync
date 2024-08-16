@@ -3,10 +3,22 @@ import styled from "styled-components";
 type ButtonPrimaryType = {
   label: string;
   onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  className?: string;
+  Icon?: JSX.Element;
 };
 
-export default function ButtonPrimary({ onClick, label }: ButtonPrimaryType) {
-  return <ButtonPrimaryStyled onClick={onClick}>{label}</ButtonPrimaryStyled>;
+export default function ButtonPrimary({
+  onClick,
+  label,
+  className,
+  Icon,
+}: ButtonPrimaryType) {
+  return (
+    <ButtonPrimaryStyled onClick={onClick} className={className}>
+      {Icon && Icon}
+      {label}
+    </ButtonPrimaryStyled>
+  );
 }
 
 const ButtonPrimaryStyled = styled.button`

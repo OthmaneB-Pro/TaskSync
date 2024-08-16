@@ -5,21 +5,23 @@ export default function InterfaceStatus() {
   return (
     <InterfaceStyled className="interface">
       <div className="list">
-        <p>To Do</p>
+        <h2>To Do</h2>
         <TaskCard />
       </div>
       <div className="list">
-        <p>Doing</p>
+        <h2>Doing</h2>
+        <TaskCard />
       </div>
       <div className="list">
-        <p>Done</p>
+        <h2>Done</h2>
+        <TaskCard />
       </div>
     </InterfaceStyled>
   );
 }
 
 const InterfaceStyled = styled.div`
-  background-color: #00d5ff;
+  background-color: #F5F5F7;
   flex-grow: 1;
   width: 100%;
   display: grid;
@@ -27,10 +29,17 @@ const InterfaceStyled = styled.div`
   .list {
     width: 370px;
     height: 550px;
-    background-color: #999797;
-    margin-left: 15px;
+    border-radius: 5px;
+    background-color: #3755167d;
+    margin-left: 30px;
     margin-top: 20px;
     overflow-y: scroll;
     scrollbar-width: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+
+    h2{
+        display: flex;
+        justify-content: center;
+    }
   }
 `;
