@@ -17,8 +17,13 @@ export default function InterfacePage() {
             }}
           />
         </div>
-        <div className="interface">
-            interface
+        <div className="menu">
+          <div className="project">Projet</div>
+          <div className="interface">
+            <p>To Do</p>
+            <p>Doing</p>
+            <p>Done</p>
+          </div>
         </div>
       </div>
     </InterfacePageStyled>
@@ -41,21 +46,35 @@ const InterfacePageStyled = styled.div`
     display: flex;
     flex-direction: column;
 
-    .navbar{
-        background-color: red;
-        height: 70px;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 20px;
-        box-sizing: border-box;
+    .navbar {
+      background-color: red;
+      height: 70px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      box-sizing: border-box;
     }
-    .interface{
+    .menu {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      height: 100vh;
+      .project {
+        background-color: green;
+      }
+      .interface {
         background-color: #00d5ff;
-        flex-grow :1;
+        flex-grow: 1;
         width: 100%;
-
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        p {
+          width: 370px;
+          background-color: pink;
+          margin-left: 15px;
+        }
+      }
     }
   }
 `;
