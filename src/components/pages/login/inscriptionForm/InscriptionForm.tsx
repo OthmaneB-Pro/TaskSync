@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import styled from "styled-components";
 import InputText from "../../../reusable-ui/InputText";
 import ButtonPrimary from "../../../reusable-ui/ButtonPrimary";
+import LoginTitle from "../LoginTitle";
 
 export default function InscriptionForm() {
   const [user, setUser] = useState({
@@ -10,11 +11,13 @@ export default function InscriptionForm() {
     password: "",
     date: "",
   });
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleSubmit = (
+    event: React.FormEvent<HTMLFormElement>
+  ) => {
     event.preventDefault();
-    navigate(`/login/${user.username}`)
+    navigate(`/login/${user.username}`);
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,8 +28,8 @@ export default function InscriptionForm() {
   return (
     <InscriptionFormStyled>
       <div className="container">
-        <h1>Inscription</h1>
-        <form action="submit">
+        <LoginTitle label={"Inscription"} />
+        <form action="submit" onSubmit={handleSubmit}>
           <InputText
             value={user.username}
             name="username"
@@ -34,6 +37,7 @@ export default function InscriptionForm() {
             placeholder="Nom"
             onChange={handleChange}
             label={"Nom :"}
+            required
           />
           <InputText
             value={user.date}
@@ -42,6 +46,7 @@ export default function InscriptionForm() {
             placeholder="date"
             onChange={handleChange}
             label={"Date de naissance :"}
+            required
           />
           <InputText
             value={user.password}
@@ -50,8 +55,9 @@ export default function InscriptionForm() {
             placeholder="Mot de passe"
             onChange={handleChange}
             label={"Mot de passe :"}
+            required
           />
-          <ButtonPrimary label={"S'inscrire"} onClick={handleClick} />
+          <ButtonPrimary label={"S'inscrire"} onClick={()=> {}} />
         </form>
       </div>
     </InscriptionFormStyled>
@@ -63,7 +69,7 @@ const InscriptionFormStyled = styled.div`
   border: none !important;
   display: flex;
   justify-content: center;
-  
+
   .container {
     background-color: white;
     width: 500px !important;
@@ -76,18 +82,15 @@ const InscriptionFormStyled = styled.div`
     flex-direction: column;
     align-items: center;
     animation-duration: 0.3s;
-  animation-name: animate-fade;
-  @keyframes animate-fade {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-  }
-  h1 {
-    font-size: 40px;
-    color: white;
-    font-weight: 1000;
-    text-decoration: underline #528a177e;
-    -webkit-text-stroke: 2px #3755167d;
+    animation-name: animate-fade;
+    @keyframes animate-fade {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
   }
   form {
     display: flex;

@@ -7,6 +7,7 @@ type InputTextType = {
   placeholder: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   label : string;
+  required : boolean;
 };
 
 export default function InputText({
@@ -16,6 +17,7 @@ export default function InputText({
   placeholder,
   onChange,
   label,
+  required,
 }: InputTextType) {
   return (
     <InputTextStyled>
@@ -25,7 +27,8 @@ export default function InputText({
       name={name}
       type={type}
       placeholder={placeholder}
-      onChange={onChange}>
+      onChange={onChange}
+      required={required}>
      </input>
     </InputTextStyled>
   );
