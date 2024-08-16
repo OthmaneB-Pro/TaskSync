@@ -1,8 +1,13 @@
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import styled from "styled-components";
+import InscriptionForm from "./inscriptionForm/InscriptionForm";
+import LoginForm from "./loginForm/LoginForm";
 
-export default function LoginForm() {
-    const navigate = useNavigate()
+export default function WelcomePage() {
+const [formType, setFormType] = useState("")
+
+  if(formType === "inscription"){return <InscriptionForm/> }
+  if(formType === "connexion"){return <LoginForm/>}
 
   return (
     <LoginFormStyled>
@@ -14,8 +19,8 @@ export default function LoginForm() {
         votre quotidien avec TaskSync !
       </p>
       <p>Connectez-vous ! Pas encore de compte ? Inscrivez-vous</p>
-     <button onClick={() => navigate("/inscriptionForm")}>S'inscrire</button>
-    <button onClick={() => navigate("/loginForm")}>Se connecter</button>
+     <button onClick={() => {setFormType("inscription")}}>S'inscrire</button>
+    <button onClick={() => {setFormType("connexion")}}>Se connecter</button>
     </LoginFormStyled>
   );
 }

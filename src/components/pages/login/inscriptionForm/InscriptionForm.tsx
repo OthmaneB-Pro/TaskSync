@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
 import InputText from "../../../reusable-ui/InputText";
+import ButtonPrimary from "../../../reusable-ui/ButtonPrimary";
 
 export default function InscriptionForm() {
   const [user, setUser] = useState({
@@ -26,31 +27,31 @@ export default function InscriptionForm() {
       <div className="container">
         <h1>Inscription</h1>
         <form action="submit">
-          <p>Nom :</p>
           <InputText
             value={user.username}
             name="username"
             type="name"
             placeholder="Nom"
             onChange={handleChange}
+            label={"Nom :"}
           />
-          <p>Date de naissance :</p>
           <InputText
             value={user.date}
             name="date"
             type="date"
             placeholder="date"
             onChange={handleChange}
+            label={"Date de naissance :"}
           />
-          <p>Mot de passe :</p>
           <InputText
             value={user.password}
             name="password"
             type="password"
             placeholder="Mot de passe"
             onChange={handleChange}
+            label={"Mot de passe :"}
           />
-          <button onClick={handleClick}>S'inscrire</button>
+          <ButtonPrimary label={"S'inscrire"} onClick={handleClick} />
         </form>
       </div>
     </InscriptionFormStyled>
@@ -88,27 +89,6 @@ const InscriptionFormStyled = styled.div`
     text-decoration: underline #528a177e;
     -webkit-text-stroke: 2px #3755167d;
   }
-  p {
-    font-weight: 700;
-  }
-  button {
-    padding: 15px;
-    width: 200px;
-    background-color: #3755167d;
-    border: 1px solid white;
-    border-radius: 5px;
-    color: white;
-    margin-top: 100px;
-    font-size: 16px;
-    &:hover {
-      background-color: white;
-      color: #3755167d;
-      cursor: pointer;
-      border-color: #3755167d;
-      transition: 0.3s;
-    }
-  }
-  
   form {
     display: flex;
     flex-direction: column;

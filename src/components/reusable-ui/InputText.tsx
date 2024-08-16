@@ -6,6 +6,7 @@ type InputTextType = {
   type: string;
   placeholder: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  label : string;
 };
 
 export default function InputText({
@@ -14,21 +15,30 @@ export default function InputText({
   type,
   placeholder,
   onChange,
+  label,
 }: InputTextType) {
   return (
-    <InputTextStyled
+    <InputTextStyled>
+    <p>{label}</p>
+    <input
       value={value}
       name={name}
       type={type}
       placeholder={placeholder}
-      onChange={onChange}
-    ></InputTextStyled>
+      onChange={onChange}>
+     </input>
+    </InputTextStyled>
   );
 }
 
-const InputTextStyled = styled.input`
+const InputTextStyled = styled.div`
+    input{
     width: 300px;
     height: 25px;
     padding: 5px;
     border-radius: 5px;
+    }
+    p {
+    font-weight: 700;
+  }
 `

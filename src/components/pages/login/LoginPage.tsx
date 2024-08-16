@@ -22,7 +22,6 @@ const LoginPageStyled = styled.div`
     width: 800px;
     height: 600px;
     border-radius: 15px;
-    border: 1px solid black;
     position: relative;
     overflow-y: hidden;
 
