@@ -1,20 +1,6 @@
 import styled from "styled-components";
 import TaskDetails from "../pages/interfaceMain/status/TaskDetails";
-
-export type TaskType = {
-  id: number;
-  title: string;
-  description: string;
-  dueDate: string;
-  tags: string[];
-  status: string;
-};
-
-type TaskCardType = {
-  task: TaskType;
-  onExpand: (id: number) => void;
-  isExpanded: boolean;
-};
+import { TaskCardType } from "../reusable-type/TaskCard";
 
 export default function CardPrimary({
   task,

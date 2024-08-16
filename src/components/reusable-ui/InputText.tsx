@@ -1,14 +1,5 @@
 import styled from "styled-components";
-
-type InputTextType = {
-  value: string;
-  name: string;
-  type: string;
-  placeholder: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  label: string;
-  required: boolean;
-};
+import { InputTextType } from "../reusable-type/Input";
 
 export default function InputText({
   value,
