@@ -15,7 +15,7 @@ export default function AuthForm({ isSignUp }: { isSignUp: boolean }) {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    navigate(`/login/${user.username}`);
+    navigate(`/interface/${user.username}`);
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
