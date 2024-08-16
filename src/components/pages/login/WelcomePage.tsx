@@ -1,13 +1,12 @@
 import { useState } from "react";
 import styled from "styled-components";
-import InscriptionForm from "./inscriptionForm/InscriptionForm";
-import LoginForm from "./loginForm/LoginForm";
+import AuthForm from "./AuthForm";
 
 export default function WelcomePage() {
 const [formType, setFormType] = useState("")
 
-  if(formType === "inscription"){return <InscriptionForm/> }
-  if(formType === "connexion"){return <LoginForm/>}
+  if(formType === "inscription"){return <AuthForm isSignUp={true}/> }
+  if(formType === "connexion"){return <AuthForm isSignUp={false}/>}
 
   return (
     <LoginFormStyled>

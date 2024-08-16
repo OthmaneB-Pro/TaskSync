@@ -1,21 +1,19 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
-import InputText from "../../../reusable-ui/InputText";
-import ButtonPrimary from "../../../reusable-ui/ButtonPrimary";
-import LoginTitle from "../LoginTitle";
+import InputText from "../../reusable-ui/InputText";
+import ButtonPrimary from "../../reusable-ui/ButtonPrimary";
+import LoginTitle from "./LoginTitle";
 
-export default function InscriptionForm() {
+export default function AuthForm({ isSignUp }: { isSignUp: boolean }) {
   const [user, setUser] = useState({
     username: "",
     password: "",
-    date: "",
+    date: isSignUp ? "" : undefined, 
   });
   const navigate = useNavigate();
 
-  const handleSubmit = (
-    event: React.FormEvent<HTMLFormElement>
-  ) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     navigate(`/login/${user.username}`);
   };
@@ -26,28 +24,30 @@ export default function InscriptionForm() {
   };
 
   return (
-    <InscriptionFormStyled>
+    <AuthFormStyled>
       <div className="container">
-        <LoginTitle label={"Inscription"} />
-        <form action="submit" onSubmit={handleSubmit}>
+        <LoginTitle label={isSignUp ? "Inscription" : "Connexion"} />
+        <form onSubmit={handleSubmit}>
           <InputText
             value={user.username}
             name="username"
-            type="name"
+            type="text"
             placeholder="Nom"
             onChange={handleChange}
             label={"Nom :"}
             required
           />
-          <InputText
-            value={user.date}
-            name="date"
-            type="date"
-            placeholder="date"
-            onChange={handleChange}
-            label={"Date de naissance :"}
-            required
-          />
+          {isSignUp && (
+            <InputText
+              value={user.date || ""}
+              name="date"
+              type="date"
+              placeholder="Date de naissance"
+              onChange={handleChange}
+              label={"Date de naissance :"}
+              required
+            />
+          )}
           <InputText
             value={user.password}
             name="password"
@@ -57,27 +57,27 @@ export default function InscriptionForm() {
             label={"Mot de passe :"}
             required
           />
-          <ButtonPrimary label={"S'inscrire"} onClick={()=> {}} />
+          <ButtonPrimary
+            label={isSignUp ? "S'inscrire" : "Se connecter"}
+            onClick={() => {}}
+          />
         </form>
       </div>
-    </InscriptionFormStyled>
+    </AuthFormStyled>
   );
 }
 
-const InscriptionFormStyled = styled.div`
+const AuthFormStyled = styled.div`
   background-color: #528a177e;
-  border: none !important;
   display: flex;
   justify-content: center;
 
   .container {
     background-color: white;
-    width: 500px !important;
+    width: 500px;
     height: 600px;
     border: 1px solid black;
     border-radius: 15px;
-    position: relative;
-    overflow-y: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -92,9 +92,12 @@ const InscriptionFormStyled = styled.div`
       }
     }
   }
+
   form {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 `;
+
+
