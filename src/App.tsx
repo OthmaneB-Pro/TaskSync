@@ -1,11 +1,17 @@
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import LoginPage from "./components/pages/login/LoginPage";
+import ErrorPage from "./components/pages/error/ErrorPage";
+import InterfacePage from "./components/pages/interfaceMain/InterfacePage";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <h1>TaskSync !</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path={"*"} element={<ErrorPage />} />
+        <Route path={"/"} element={<LoginPage />} />
+        <Route path={"/interface/:username"} element={<InterfacePage />} />
+
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;
