@@ -1,16 +1,15 @@
 import styled from "styled-components";
 import InterfaceStatus from "./InterfaceStatus";
-import Navbar from "./Navbar";
+import Navbar from "./navbar/Navbar";
 
 export default function InterfacePage() {
-
   return (
     <InterfacePageStyled>
       <div className="container">
-        <Navbar/>
+        <Navbar />
         <div className="menu">
           <div className="project">Projet</div>
-            <InterfaceStatus/>
+          <InterfaceStatus />
         </div>
       </div>
     </InterfacePageStyled>

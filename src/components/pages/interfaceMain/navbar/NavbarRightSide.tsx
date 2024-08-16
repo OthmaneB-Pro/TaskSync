@@ -1,15 +1,16 @@
-import ButtonPrimary from "../../reusable-ui/ButtonPrimary";
 import { useNavigate, useParams } from "react-router";
-import styled from "styled-components";
-import Title from "../../reusable-ui/Title";
+import ButtonPrimary from "../../../reusable-ui/ButtonPrimary";
 import { IoMdAdd } from "react-icons/io";
+import styled from "styled-components";
+import Title from "../../../reusable-ui/Title";
 
-export default function Navbar() {
+export default function NavbarRightSide() {
   const { username } = useParams();
   const navigate = useNavigate();
+
   return (
-    <NavbarStyled>
-      <Title label="TaskSync" /> {username}
+    <NavbarRightSideStyled>
+      <Title label={`${username}`} />
       <ButtonPrimary
         className="button-add"
         label={""}
@@ -23,28 +24,25 @@ export default function Navbar() {
           navigate("/");
         }}
       />
-    </NavbarStyled>
+    </NavbarRightSideStyled>
   );
 }
 
-const NavbarStyled = styled.div`
-  height: 70px;
-  width: 100%;
+const NavbarRightSideStyled = styled.div`
   display: flex;
   align-items: center;
-  padding: 0 20px;
-  box-sizing: border-box;
-
+  .button-add {
+    margin-top: 0;
+    margin-left: 30px;
+    padding: 5px;
+    width: 50px;
+    height: 40px;
+  }
   .button-deconnexion {
     margin-top: 0;
     padding: 5px;
     width: 120px;
     height: 40px;
   }
-  .button-add {
-    margin-top: 0;
-    padding: 5px;
-    width: 50px;
-    height: 40px;
-  }
+  
 `;
