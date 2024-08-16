@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router";
 import styled from "styled-components";
 import ButtonPrimary from "../../reusable-ui/ButtonPrimary";
+import TaskCard from "../../reusable-ui/TaskCard";
 
 export default function InterfacePage() {
   const { username } = useParams();
@@ -20,9 +21,16 @@ export default function InterfacePage() {
         <div className="menu">
           <div className="project">Projet</div>
           <div className="interface">
-            <p>To Do</p>
-            <p>Doing</p>
-            <p>Done</p>
+            <div className="list">
+              <p>To Do</p>
+              <TaskCard/>
+            </div>
+            <div className="list">
+              <p>Doing</p>
+            </div>
+            <div className="list">
+              <p>Done</p>
+            </div>
           </div>
         </div>
       </div>
@@ -69,11 +77,16 @@ const InterfacePageStyled = styled.div`
         width: 100%;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        p {
+        .list {
           width: 370px;
-          background-color: pink;
+          height: 550px;
+          background-color: #999797;
           margin-left: 15px;
+          margin-top: 20px;
+          overflow-y: scroll;
+          scrollbar-width: none;
         }
+        
       }
     }
   }
