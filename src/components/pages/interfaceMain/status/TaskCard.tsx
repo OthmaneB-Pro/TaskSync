@@ -1,10 +1,10 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { tasks } from "../../fakeData/fakeTask"; // Importation des tâches
+import { tasks } from "../../../../fakeData/fakeTask"; 
+import TaskDetails from "./TaskDetails";
 
 export default function TaskCard() {
-  const [expandedTaskId, setExpandedTaskId] = useState<number | null>(null); // Pour suivre quelle tâche est étendue
-
+  const [expandedTaskId, setExpandedTaskId] = useState<number | null>(null);
   const toggleExpand = (taskId: number) => {
     setExpandedTaskId(expandedTaskId === taskId ? null : taskId);
   };
@@ -14,41 +14,15 @@ export default function TaskCard() {
       {tasks.map((task) => (
         <CardStyled key={task.id}>
           <div className="task-header" onClick={() => toggleExpand(task.id)}>
-            <h3>{task.title}</h3> 
-            <p>Date limite : {task.dueDate}</p> 
-            <p>Assignée à : {task.assignee}</p> 
+            <h3>{task.title}</h3>
+            <p>Date limite : {task.dueDate}</p>
             <div className="tags">
-            <span>{task.tags}</span>
-            </div> 
+              <span>{task.tags}</span>
+            </div>
           </div>
 
           {expandedTaskId === task.id && (
-            <div className="task-details">
-              <p>Description complète : {task.description}</p>
-              <div className="actions">
-                <button
-                  onClick={() => {
-                    /* Fonction Modifier */
-                  }}
-                >
-                  Modifier
-                </button>
-                <button
-                  onClick={() => {
-                    /* Fonction Supprimer */
-                  }}
-                >
-                  Supprimer
-                </button>
-                <button
-                  onClick={() => {
-                    /* Fonction Déplacer */
-                  }}
-                >
-                  Déplacer
-                </button>
-              </div>
-            </div>
+            <TaskDetails task={task} />
           )}
         </CardStyled>
       ))}
@@ -65,7 +39,6 @@ const CardStyled = styled.div`
   width: 317px;
   cursor: pointer;
   transition: box-shadow 0.3s ease;
-  
 
   .task-header {
     h3 {
@@ -112,6 +85,6 @@ const CardStyled = styled.div`
   }
 
   &:hover {
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.774);
   }
 `;

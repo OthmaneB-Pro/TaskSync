@@ -21,4 +21,5 @@ const NavbarStyled = styled.div`
   padding: 0 20px;
   box-sizing: border-box;
   justify-content: space-between;
+  border: 1px solid #3755167d;
 `;

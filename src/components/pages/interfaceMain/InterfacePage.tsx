@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import InterfaceStatus from "./InterfaceStatus";
+import InterfaceStatus from "./status/InterfaceStatus";
 import Navbar from "./navbar/Navbar";
 
 export default function InterfacePage() {
@@ -27,6 +27,7 @@ const InterfacePageStyled = styled.div`
     width: 1400px;
     height: 700px;
     border-radius: 15px;
+    border: 2px solid #3755167d;
     position: relative;
     overflow-y: hidden;
     display: flex;
@@ -36,7 +37,7 @@ const InterfacePageStyled = styled.div`
       grid-template-columns: 80px 1fr;
       height: 100vh;
       .project {
-        background-color: green;
+        background-color: #3755167d;
       }
     }
   }

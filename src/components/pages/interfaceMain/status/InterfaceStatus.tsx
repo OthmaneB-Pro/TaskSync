@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import TaskCard from "../../reusable-ui/TaskCard";
+import TaskCard from "./TaskCard";
 
 export default function InterfaceStatus() {
   return (
@@ -21,7 +21,7 @@ export default function InterfaceStatus() {
 }
 
 const InterfaceStyled = styled.div`
-  background-color: #F5F5F7;
+  background-color: #f5f5f7;
   flex-grow: 1;
   width: 100%;
   display: grid;
@@ -32,14 +32,14 @@ const InterfaceStyled = styled.div`
     border-radius: 5px;
     background-color: #3755167d;
     margin-left: 30px;
-    margin-top: 20px;
+    margin-top: 30px;
     overflow-y: scroll;
     scrollbar-width: none;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 
-    h2{
-        display: flex;
-        justify-content: center;
+    h2 {
+      display: flex;
+      justify-content: center;
     }
   }
 `;
