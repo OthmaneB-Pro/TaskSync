@@ -3,13 +3,13 @@ import { useNavigate } from "react-router";
 import styled from "styled-components";
 import InputText from "../../reusable-ui/InputText";
 import ButtonPrimary from "../../reusable-ui/ButtonPrimary";
-import LoginTitle from "./LoginTitle";
+import Title from "../../reusable-ui/Title";
 
 export default function AuthForm({ isSignUp }: { isSignUp: boolean }) {
   const [user, setUser] = useState({
     username: "",
     password: "",
-    date: isSignUp ? "" : undefined, 
+    date: isSignUp ? "" : undefined,
   });
   const navigate = useNavigate();
 
@@ -26,7 +26,7 @@ export default function AuthForm({ isSignUp }: { isSignUp: boolean }) {
   return (
     <AuthFormStyled>
       <div className="container">
-        <LoginTitle label={isSignUp ? "Inscription" : "Connexion"} />
+        <Title label={isSignUp ? "Inscription" : "Connexion"} />
         <form onSubmit={handleSubmit}>
           <InputText
             value={user.username}
@@ -99,5 +99,3 @@ const AuthFormStyled = styled.div`
     align-items: center;
   }
 `;
-
-

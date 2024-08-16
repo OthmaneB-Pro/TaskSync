@@ -6,8 +6,8 @@ type InputTextType = {
   type: string;
   placeholder: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  label : string;
-  required : boolean;
+  label: string;
+  required: boolean;
 };
 
 export default function InputText({
@@ -21,27 +21,27 @@ export default function InputText({
 }: InputTextType) {
   return (
     <InputTextStyled>
-    <p>{label}</p>
-    <input
-      value={value}
-      name={name}
-      type={type}
-      placeholder={placeholder}
-      onChange={onChange}
-      required={required}>
-     </input>
+      <p>{label}</p>
+      <input
+        value={value}
+        name={name}
+        type={type}
+        placeholder={placeholder}
+        onChange={onChange}
+        required={required}
+      ></input>
     </InputTextStyled>
   );
 }
 
 const InputTextStyled = styled.div`
-    input{
+  input {
     width: 300px;
     height: 25px;
     padding: 5px;
     border-radius: 5px;
-    }
-    p {
+  }
+  p {
     font-weight: 700;
   }
-`
+`;
