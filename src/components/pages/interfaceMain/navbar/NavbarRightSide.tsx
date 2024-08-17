@@ -3,10 +3,13 @@ import ButtonPrimary from "../../../reusable-ui/ButtonPrimary";
 import { IoMdAdd } from "react-icons/io";
 import styled from "styled-components";
 import Title from "../../../reusable-ui/Title";
+import { useContext } from "react";
+import { UserContext } from "../../../../context/UserContext";
 
 export default function NavbarRightSide() {
   const { username } = useParams();
   const navigate = useNavigate();
+  const {formulaire, setFormulaire} = useContext(UserContext)
 
   return (
     <NavbarRightSideStyled>
@@ -15,8 +18,9 @@ export default function NavbarRightSide() {
         className="button-add"
         label={""}
         Icon={<IoMdAdd />}
-        onClick={() => {}}
+        onClick={() => setFormulaire(!formulaire)} 
       />
+      {/*Il faut que le bouton ouvre le formulaire, et dans le formualaire on fait le onAddTasks*/}
       <ButtonPrimary
         className="button-deconnexion"
         label="Déconnexion"

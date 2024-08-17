@@ -5,19 +5,24 @@ import { tasks } from "../../../fakeData/fakeTask";
 import { useState } from "react";
 import { TaskType } from "../../reusable-type/TaskCard";
 import { UserContext } from "../../../context/UserContext";
+import FormulaireForCard from "./status/formulaire/FormulaireForCard";
 
 export default function InterfacePage() {
   const [tache, setTache] = useState<TaskType[]>(tasks);
+  const [formulaire, setFormulaire] = useState(false);
 
   const UserContextValue = {
     tache,
     setTache,
-  }
+    formulaire,
+    setFormulaire,
+  };
   return (
     <UserContext.Provider value={UserContextValue}>
       <InterfacePageStyled>
         <div className="container">
           <Navbar />
+          {formulaire && <FormulaireForCard/>}
           <div className="menu">
             <div className="project">Projet</div>
             <InterfaceStatus />
@@ -34,6 +39,7 @@ const InterfacePageStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+ 
   .container {
     background-color: white;
     width: 1400px;
@@ -44,6 +50,7 @@ const InterfacePageStyled = styled.div`
     overflow-y: hidden;
     display: flex;
     flex-direction: column;
+    
     .menu {
       display: grid;
       grid-template-columns: 80px 1fr;
