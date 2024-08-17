@@ -34,11 +34,7 @@ export default function TaskCard({ task }: TaskCardProps) {
         tags: CardSelectToUpdated.tags,
         status: CardSelectToUpdated.status,
       });
-    }
-    const updatedTasks = tache.map((task) =>
-      task.id === taskId ? newTask : task
-    );
-    setTache(updatedTasks); 
+    } 
   };
 
   const toggleExpand = (taskId: number) => {

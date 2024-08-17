@@ -7,14 +7,25 @@ import InputRadio from "./inputForm/InputRadio";
 import FormFields from "./inputForm/FormFields";
 
 export default function FormulaireForCard() {
-  const { tache, setTache, formulaire, setFormulaire, setFormUpdated, newTask, setNewTask } = useContext(UserContext);
-  
+  const {
+    tache,
+    setTache,
+    formulaire,
+    setFormulaire,
+    formUpdated,
+    setFormUpdated,
+    newTask,
+    setNewTask,
+  } = useContext(UserContext);
 
   const handleAddTask = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setTache([newTask, ...tache]);
+    const updatedTasks = tache.map((task) =>
+      task.id === newTask.id ? newTask : task
+    );
+    setTache(updatedTasks);    
     setFormulaire(false);
-    setFormUpdated(false)
+    setFormUpdated(false);
     setNewTask({
       id: Date.now(),
       title: "",
