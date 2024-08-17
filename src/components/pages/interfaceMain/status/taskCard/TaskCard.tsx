@@ -9,7 +9,7 @@ interface TaskCardProps {
 }
 
 export default function TaskCard({ task }: TaskCardProps) {
-  const { tache, setTache, setFormUpdated, setNewTask, newTask } =
+  const { tache, setTache, setFormUpdated, setNewTask } =
     useContext(UserContext);
   const [expandedTaskId, setExpandedTaskId] = useState<number | null>(null);
 

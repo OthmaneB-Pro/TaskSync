@@ -1,39 +1,19 @@
 import styled from "styled-components";
-import ButtonPrimary from "../../../../reusable-ui/ButtonPrimary";
+import { TaskType } from "../../../../reusable-type/TaskCard";
+import TaskActions from "./function/TaskActions";
 
-export default function TaskDetails({ task, onDelete, onMove, onUpdated }: any) {
+type TaskDetailsType = {
+  task: TaskType;
+  onDelete: (id: number) => void;
+  onMove: (id: number, status: string) => void;
+  onUpdated: (id: number) => void;
+}
+
+export default function TaskDetails({ task, onDelete, onMove, onUpdated }: TaskDetailsType) {
   return (
     <TaskDetailsStyled className="task-details">
       <p>{task.description}</p>
-      <div className="actions">
-        <ButtonPrimary label="Modifier" className="button" onClick={() => onUpdated(task.id)} />
-        <ButtonPrimary
-          label="Supprimer"
-          className="button"
-          onClick={() => onDelete(task.id)}
-        />
-        {task.status !== "To Do" && task.status !== "Done" && (
-          <>
-            <ButtonPrimary
-              label="To Do"
-              className="button-move"
-              onClick={() => onMove(task.id, "To Do")}
-            />
-            <ButtonPrimary
-              label="Done"
-              className="button-move"
-              onClick={() => onMove(task.id, "Done")}
-            />
-          </>
-        )}
-        {task.status !== "Doing" && (
-          <ButtonPrimary
-            label="Doing"
-            className="button-move"
-            onClick={() => onMove(task.id, "Doing")}
-          />
-        )}
-      </div>
+      <TaskActions task={task} onDelete={onDelete} onMove={onMove} onUpdated={onUpdated} />
     </TaskDetailsStyled>
   );
 }
