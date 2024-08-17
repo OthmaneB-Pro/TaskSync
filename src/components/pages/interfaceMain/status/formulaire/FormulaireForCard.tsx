@@ -3,8 +3,8 @@ import Title from "../../../../reusable-ui/Title";
 import { useContext, useState } from "react";
 import { UserContext } from "../../../../../context/UserContext";
 import ButtonPrimary from "../../../../reusable-ui/ButtonPrimary";
-import InputRadio from "./InputRadio";
-import FormFields from "./FormFields";
+import InputRadio from "./inputForm/InputRadio";
+import FormFields from "./inputForm/FormFields";
 
 export default function FormulaireForCard() {
   const { tache, setTache, setFormulaire } = useContext(UserContext);
@@ -17,8 +17,8 @@ export default function FormulaireForCard() {
     status: "To Do",
   });
   const handleAddTask = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    setTache([newTask, ...tache])
+    event.preventDefault();
+    setTache([newTask, ...tache]);
     setFormulaire(false);
   };
 
@@ -36,7 +36,7 @@ export default function FormulaireForCard() {
         <Title label={"Ajouter une tâche"} />
         <form onSubmit={handleAddTask}>
           <FormFields newTask={newTask} onChange={handleChange} />
-          <InputRadio newTask={newTask} onChange={handleChange}/>
+          <InputRadio newTask={newTask} onChange={handleChange} />
           <ButtonPrimary
             label="Revenir"
             className="button"

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import ButtonPrimary from "../../../reusable-ui/ButtonPrimary";
+import ButtonPrimary from "../../../../reusable-ui/ButtonPrimary";
 
 export default function TaskDetails({ task, onDelete, onMove }: any) {
   return (
@@ -14,16 +14,16 @@ export default function TaskDetails({ task, onDelete, onMove }: any) {
         />
         {task.status !== "To Do" && task.status !== "Done" && (
           <>
-          <ButtonPrimary
-            label="To Do"
-            className="button-move"
-            onClick={() => onMove(task.id, "To Do")}
-          />
-          <ButtonPrimary
-            label="Done"
-            className="button-move"
-            onClick={() => onMove(task.id, "Done")}
-          />
+            <ButtonPrimary
+              label="To Do"
+              className="button-move"
+              onClick={() => onMove(task.id, "To Do")}
+            />
+            <ButtonPrimary
+              label="Done"
+              className="button-move"
+              onClick={() => onMove(task.id, "Done")}
+            />
           </>
         )}
         {task.status !== "Doing" && (
@@ -33,7 +33,6 @@ export default function TaskDetails({ task, onDelete, onMove }: any) {
             onClick={() => onMove(task.id, "Doing")}
           />
         )}
-       
       </div>
     </TaskDetailsStyled>
   );
@@ -50,7 +49,7 @@ const TaskDetailsStyled = styled.div`
     width: 93px;
     height: 30px;
   }
-  .button-move{
+  .button-move {
     margin-top: 0;
     width: 65px;
     height: 30px;

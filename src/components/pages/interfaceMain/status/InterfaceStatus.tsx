@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import TaskCard from "./TaskCard";
+import TaskCard from "./taskCard/TaskCard";
 import { useContext } from "react";
 import { UserContext } from "../../../../context/UserContext";
 

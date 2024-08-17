@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import InputText from "../../../../reusable-ui/InputText";
+import InputText from "../../../../../reusable-ui/InputText";
 
 export type FormFieldsType = {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  newTask : any;
+  newTask: any;
 };
 
 export default function FormFields({ onChange, newTask }: FormFieldsType) {

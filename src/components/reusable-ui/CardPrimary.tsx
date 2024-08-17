@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import TaskDetails from "../pages/interfaceMain/status/TaskDetails";
+import TaskDetails from "../pages/interfaceMain/status/taskCard/TaskDetails";
 import { TaskCardType } from "../reusable-type/TaskCard";
 
 export default function CardPrimary({
@@ -15,11 +15,13 @@ export default function CardPrimary({
         <h3>{task.title}</h3>
         <p>Date limite : {task.dueDate}</p>
         <div className="tags">
-         <span>{task.tags}</span>
+          <span>{task.tags}</span>
         </div>
       </div>
 
-      {isExpanded && <TaskDetails task={task} onDelete={onDelete} onMove={onMove} />}
+      {isExpanded && (
+        <TaskDetails task={task} onDelete={onDelete} onMove={onMove} />
+      )}
     </CardStyled>
   );
 }

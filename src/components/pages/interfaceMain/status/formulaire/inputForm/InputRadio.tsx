@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import InputText from "../../../../reusable-ui/InputText";
+import InputText from "../../../../../reusable-ui/InputText";
 import { FormFieldsType } from "./FormFields";
 
-export default function InputRadio({onChange} : FormFieldsType) {
+export default function InputRadio({ onChange }: FormFieldsType) {
   return (
     <InputRadioStyled>
       <InputText
