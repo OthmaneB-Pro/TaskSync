@@ -31,7 +31,7 @@ export default function FormFields({ onChange, newTask }: FormFieldsType) {
       <InputText
         value={newTask.dueDate}
         name="dueDate"
-        type="datetime-local"
+        type="date"
         placeholder="Date de Fin"
         onChange={onChange}
         label={"Date de Fin :"}

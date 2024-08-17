@@ -3,7 +3,7 @@ export type TaskType = {
     title: string;
     description: string;
     dueDate: string;
-    tags: string[];
+    tags: string;
     status: string;
   };
   

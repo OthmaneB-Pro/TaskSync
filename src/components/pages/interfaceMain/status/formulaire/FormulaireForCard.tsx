@@ -7,13 +7,13 @@ import InputRadio from "./InputRadio";
 import FormFields from "./FormFields";
 
 export default function FormulaireForCard() {
-  const { tache, setTache, formulaire, setFormulaire } = useContext(UserContext);
+  const { tache, setTache, setFormulaire } = useContext(UserContext);
   const [newTask, setNewTask] = useState({
     id: Date.now(),
     title: "",
     description: "",
     dueDate: "",
-    tags: [] as string[],
+    tags: "",
     status: "To Do",
   });
   const handleAddTask = (event: React.FormEvent<HTMLFormElement>) => {

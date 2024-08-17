@@ -15,7 +15,7 @@ export default function CardPrimary({
         <h3>{task.title}</h3>
         <p>Date limite : {task.dueDate}</p>
         <div className="tags">
-          {task.tags}
+         <span>{task.tags}</span>
         </div>
       </div>
 

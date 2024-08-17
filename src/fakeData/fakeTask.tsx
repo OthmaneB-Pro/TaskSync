@@ -4,7 +4,7 @@ export const tasks = [
       title: "Créer la page d'accueil",
       description: "Finaliser la conception de la page d'accueil avec toutes les sections.",
       dueDate: "20/07/2024",
-      tags: ["Urgent"],
+      tags: "Urgent",
       status: "To Do",
     },
     {
@@ -12,7 +12,7 @@ export const tasks = [
       title: "API pour authentification",
       description: "Développer l'API pour la gestion des tokens JWT.",
       dueDate: "25/08/2024",
-      tags: ["Pas urgent"],
+      tags: "Pas Urgent",
       status: "Doing",
     },
     {
@@ -20,7 +20,7 @@ export const tasks = [
         title: "Créer la page d'accueil",
         description: "Finaliser la conception de la page d'accueil avec toutes les sections.",
         dueDate: "20/07/2024",
-        tags: ["Urgent"],
+        tags: "Urgent",
         status: "To Do",
       },
       {
@@ -28,7 +28,7 @@ export const tasks = [
         title: "API pour authentification",
         description: "Développer l'API pour la gestion des tokens JWT.",
         dueDate: "25/08/2024",
-        tags: ["Pas urgent"],
+        tags: "Pas Urgent",
         status: "Done",
       },
   ];
