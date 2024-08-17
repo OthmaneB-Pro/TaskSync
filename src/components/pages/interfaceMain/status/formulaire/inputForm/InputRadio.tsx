@@ -1,30 +1,25 @@
+// InputRadio.tsx
 import styled from "styled-components";
 import InputText from "../../../../../reusable-ui/InputText";
+import { radioOptions } from "./formConfig";
 import { FormFieldsType } from "./FormFields";
 
 export default function InputRadio({ onChange }: FormFieldsType) {
   return (
     <InputRadioStyled>
-      <InputText
-        className={"radio-input"}
-        value={"Urgent"}
-        name="tags"
-        type="radio"
-        placeholder=""
-        onChange={onChange}
-        label={"Urgent"}
-        required
-      />
-      <InputText
-        className={"radio-input"}
-        value={"Pas Urgent"}
-        name="tags"
-        type="radio"
-        placeholder=""
-        onChange={onChange}
-        label={"Pas Urgent"}
-        required
-      />
+      {radioOptions.map((option) => (
+        <InputText
+          key={option.value}
+          className="radio-input"
+          value={option.value}
+          name={option.name}
+          type="radio"
+          onChange={onChange}
+          label={option.label}
+          placeholder=""
+          required
+        />
+      ))}
     </InputRadioStyled>
   );
 }

@@ -20,15 +20,14 @@ export default function FormulaireForCard() {
 
   const handleAddTask = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if(formUpdated){
-    const updatedTasks = tache.map((task) =>
-      task.id === newTask.id ? newTask : task
-    );
-    setTache(updatedTasks);  
-  }
-  else{
-    setTache([newTask, ...tache]);
-    }    
+    if (formUpdated) {
+      const updatedTasks = tache.map((task) =>
+        task.id === newTask.id ? newTask : task
+      );
+      setTache(updatedTasks);
+    } else {
+      setTache([newTask, ...tache]);
+    }
     setFormulaire(false);
     setFormUpdated(false);
     setNewTask({

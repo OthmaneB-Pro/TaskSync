@@ -5,7 +5,7 @@ import { tasks } from "../../../fakeData/fakeTask";
 import { useState } from "react";
 import { TaskType } from "../../reusable-type/TaskCard";
 import { UserContext } from "../../../context/UserContext";
-import FormulaireForCard from "./status/formulaire/FormulaireForCard";
+import FormulaireForCard from "./status/formulaire/FormForCard";
 
 export default function InterfacePage() {
   const [tache, setTache] = useState<TaskType[]>(tasks);
