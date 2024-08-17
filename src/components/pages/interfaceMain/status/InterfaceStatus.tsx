@@ -45,7 +45,7 @@ const InterfaceStyled = styled.div`
     width: 370px;
     height: 550px;
     border-radius: 5px;
-    background-color: #a0a29c7a;
+    background-color: #e0e0de79;
     margin-left: 30px;
     margin-top: 30px;
     overflow-y: scroll;
