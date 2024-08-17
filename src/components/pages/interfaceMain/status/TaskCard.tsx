@@ -15,6 +15,12 @@ export default function TaskCard({ task }: TaskCardProps) {
   const handleDelete = (taskId: number) => {
     setTache(tache.filter((task) => taskId !== task.id));
   };
+  const handleMove = (taskId : number, taskStatus : string) => {
+    const updatedTasks = tache.map(task =>
+      task.id === taskId ? { ...task, status: taskStatus } : task
+    );
+    setTache(updatedTasks);
+  }
 
   const toggleExpand = (taskId: number) => {
     setExpandedTaskId(expandedTaskId === taskId ? null : taskId);
@@ -26,6 +32,7 @@ export default function TaskCard({ task }: TaskCardProps) {
       isExpanded={expandedTaskId === task.id}
       onExpand={toggleExpand}
       onDelete={handleDelete}
+      onMove={handleMove}
     />
   );
 }

@@ -7,6 +7,7 @@ export default function CardPrimary({
   onExpand,
   isExpanded,
   onDelete,
+  onMove,
 }: TaskCardType) {
   return (
     <CardStyled>
@@ -20,7 +21,7 @@ export default function CardPrimary({
         </div>
       </div>
 
-      {isExpanded && <TaskDetails task={task} onDelete={onDelete} />}
+      {isExpanded && <TaskDetails task={task} onDelete={onDelete} onMove={onMove} />}
     </CardStyled>
   );
 }
