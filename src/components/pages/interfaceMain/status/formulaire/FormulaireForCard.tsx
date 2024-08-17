@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import InputText from "../../../../reusable-ui/InputText";
 import Title from "../../../../reusable-ui/Title";
 import { useContext } from "react";
 import { UserContext } from "../../../../../context/UserContext";
 import ButtonPrimary from "../../../../reusable-ui/ButtonPrimary";
+import InputRadio from "./InputRadio";
+import FormFields from "./FormFields";
 
 export default function FormulaireForCard() {
   const { formulaire, setFormulaire } = useContext(UserContext);
@@ -13,57 +14,8 @@ export default function FormulaireForCard() {
       <div className="container">
         <Title label={"Ajouter une tâche"} />
         <form onSubmit={() => {}}>
-          <InputText
-            value="title"
-            name="title"
-            type="text"
-            placeholder="Titre"
-            onChange={() => {}}
-            label={"Titre :"}
-            required
-          />
-          <InputText
-            value="description"
-            className={"description"}
-            name="description"
-            type="text"
-            placeholder="Description"
-            onChange={() => {}}
-            label={""}
-            required
-          />
-          <InputText
-            value="dueDate"
-            name="dueDate"
-            type="datetime-local"
-            placeholder="Date de Fin"
-            onChange={() => {}}
-            label={"Date de Fin :"}
-            required
-          />
-          <div className="radio">
-            <InputText
-              className={"radio-input"}
-              value="Urgent"
-              name="tags"
-              type="radio"
-              placeholder=""
-              onChange={() => {}}
-              label={"Urgent"}
-              required
-            />
-            <InputText
-              className={"radio-input"}
-              value="Pas Urgent"
-              name="tags"
-              type="radio"
-              placeholder=""
-              onChange={() => {}}
-              label={"Pas Urgent"}
-              required
-            />
-          </div>
-
+          <FormFields/>
+          <InputRadio/>
           <ButtonPrimary
             label="Revenir"
             className="button"
@@ -113,20 +65,7 @@ const AuthFormStyled = styled.div`
     flex-direction: column;
     align-items: center;
   }
-  .description {
-    height: 80px;
-    width: 450px;
-  }
-  .radio {
-    display: flex;
-    margin-bottom: 0px;
-
-    .radio-input{
-        width: 100px;
-        display: flex;
-    }
-  }
   .button{
-    margin-top: 40px;
+    margin-top: 50px;
   }
 `;
