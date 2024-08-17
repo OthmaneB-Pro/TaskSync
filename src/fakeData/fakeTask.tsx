@@ -13,7 +13,7 @@ export const tasks = [
       description: "Développer l'API pour la gestion des tokens JWT.",
       dueDate: "25/08/2024",
       tags: ["Pas urgent"],
-      status: "To Do",
+      status: "Doing",
     },
     {
         id: 3,
@@ -29,7 +29,7 @@ export const tasks = [
         description: "Développer l'API pour la gestion des tokens JWT.",
         dueDate: "25/08/2024",
         tags: ["Pas urgent"],
-        status: "To Do",
+        status: "Done",
       },
   ];
   

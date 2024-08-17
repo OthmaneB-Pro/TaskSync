@@ -1,18 +1,30 @@
 import styled from "styled-components";
 import InterfaceStatus from "./status/InterfaceStatus";
 import Navbar from "./navbar/Navbar";
+import { tasks } from "../../../fakeData/fakeTask";
+import { useState } from "react";
+import { TaskType } from "../../reusable-type/TaskCard";
+import { UserContext } from "../../../context/UserContext";
 
 export default function InterfacePage() {
+  const [tache, setTache] = useState<TaskType[]>(tasks);
+
+  const UserContextValue = {
+    tache,
+    setTache,
+  }
   return (
-    <InterfacePageStyled>
-      <div className="container">
-        <Navbar />
-        <div className="menu">
-          <div className="project">Projet</div>
-          <InterfaceStatus />
+    <UserContext.Provider value={UserContextValue}>
+      <InterfacePageStyled>
+        <div className="container">
+          <Navbar />
+          <div className="menu">
+            <div className="project">Projet</div>
+            <InterfaceStatus />
+          </div>
         </div>
-      </div>
-    </InterfacePageStyled>
+      </InterfacePageStyled>
+    </UserContext.Provider>
   );
 }
 
