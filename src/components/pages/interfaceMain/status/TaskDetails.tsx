@@ -4,7 +4,7 @@ import ButtonPrimary from "../../../reusable-ui/ButtonPrimary";
 export default function TaskDetails({ task, onDelete, onMove }: any) {
   return (
     <TaskDetailsStyled className="task-details">
-      <p>Description complète : {task.description}</p>
+      <p>{task.description}</p>
       <div className="actions">
         <ButtonPrimary label="Modifier" className="button" onClick={() => {}} />
         <ButtonPrimary

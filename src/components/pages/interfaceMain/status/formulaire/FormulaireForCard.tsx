@@ -1,25 +1,46 @@
 import styled from "styled-components";
 import Title from "../../../../reusable-ui/Title";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../../../../../context/UserContext";
 import ButtonPrimary from "../../../../reusable-ui/ButtonPrimary";
 import InputRadio from "./InputRadio";
 import FormFields from "./FormFields";
 
 export default function FormulaireForCard() {
-  const { formulaire, setFormulaire } = useContext(UserContext);
+  const { tache, setTache, formulaire, setFormulaire } = useContext(UserContext);
+  const [newTask, setNewTask] = useState({
+    id: Date.now(),
+    title: "",
+    description: "",
+    dueDate: "",
+    tags: [] as string[],
+    status: "To Do",
+  });
+  const handleAddTask = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    setTache([newTask, ...tache])
+    setFormulaire(false);
+  };
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setNewTask((prevTask) => ({
+      ...prevTask,
+      [name]: value,
+    }));
+  };
 
   return (
     <AuthFormStyled>
       <div className="container">
         <Title label={"Ajouter une tâche"} />
-        <form onSubmit={() => {}}>
-          <FormFields/>
-          <InputRadio/>
+        <form onSubmit={handleAddTask}>
+          <FormFields newTask={newTask} onChange={handleChange} />
+          <InputRadio newTask={newTask} onChange={handleChange}/>
           <ButtonPrimary
             label="Revenir"
             className="button"
-            onClick={() => setFormulaire(!formulaire)}
+            onClick={() => {}}
           />
         </form>
       </div>
@@ -65,7 +86,7 @@ const AuthFormStyled = styled.div`
     flex-direction: column;
     align-items: center;
   }
-  .button{
+  .button {
     margin-top: 50px;
   }
 `;

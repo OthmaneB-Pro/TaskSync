@@ -1,34 +1,39 @@
 import styled from "styled-components";
 import InputText from "../../../../reusable-ui/InputText";
 
-export default function FormFields() {
+export type FormFieldsType = {
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  newTask : any;
+};
+
+export default function FormFields({ onChange, newTask }: FormFieldsType) {
   return (
     <FormFieldsStyled>
       <InputText
-        value="title"
+        value={newTask.title}
         name="title"
         type="text"
         placeholder="Titre"
-        onChange={() => {}}
+        onChange={onChange}
         label={"Titre :"}
         required
       />
       <InputText
-        value="description"
+        value={newTask.description}
         className={"description"}
         name="description"
         type="text"
         placeholder="Description"
-        onChange={() => {}}
+        onChange={onChange}
         label={""}
         required
       />
       <InputText
-        value="dueDate"
+        value={newTask.dueDate}
         name="dueDate"
         type="datetime-local"
         placeholder="Date de Fin"
-        onChange={() => {}}
+        onChange={onChange}
         label={"Date de Fin :"}
         required
       />
@@ -37,9 +42,9 @@ export default function FormFields() {
 }
 
 const FormFieldsStyled = styled.div`
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
   .description {
     height: 80px;
     width: 450px;

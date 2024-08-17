@@ -1,26 +1,27 @@
 import styled from "styled-components";
 import InputText from "../../../../reusable-ui/InputText";
+import { FormFieldsType } from "./FormFields";
 
-export default function InputRadio() {
+export default function InputRadio({onChange, newTask} : FormFieldsType) {
   return (
     <InputRadioStyled>
       <InputText
         className={"radio-input"}
-        value="Urgent"
+        value={newTask.tags}
         name="tags"
         type="radio"
         placeholder=""
-        onChange={() => {}}
+        onChange={onChange}
         label={"Urgent"}
         required
       />
       <InputText
         className={"radio-input"}
-        value="Pas Urgent"
+        value={newTask.tags}
         name="tags"
         type="radio"
         placeholder=""
-        onChange={() => {}}
+        onChange={onChange}
         label={"Pas Urgent"}
         required
       />
