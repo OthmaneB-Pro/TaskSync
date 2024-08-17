@@ -5,44 +5,70 @@ import { useContext } from "react";
 import { UserContext } from "../../../../../context/UserContext";
 import ButtonPrimary from "../../../../reusable-ui/ButtonPrimary";
 
-
 export default function FormulaireForCard() {
-    const {formulaire, setFormulaire} = useContext(UserContext)
+  const { formulaire, setFormulaire } = useContext(UserContext);
+
   return (
     <AuthFormStyled>
       <div className="container">
         <Title label={"Ajouter une tâche"} />
         <form onSubmit={() => {}}>
           <InputText
-          value=""
-            name="username"
+            value="title"
+            name="title"
             type="text"
-            placeholder="Nom"
+            placeholder="Titre"
             onChange={() => {}}
-            label={"Nom :"}
+            label={"Titre :"}
             required
           />
+          <InputText
+            value="description"
+            className={"description"}
+            name="description"
+            type="text"
+            placeholder="Description"
+            onChange={() => {}}
+            label={""}
+            required
+          />
+          <InputText
+            value="dueDate"
+            name="dueDate"
+            type="datetime-local"
+            placeholder="Date de Fin"
+            onChange={() => {}}
+            label={"Date de Fin :"}
+            required
+          />
+          <div className="radio">
             <InputText
-            value=""
-              name="date"
-              type="date"
-              placeholder="Date de naissance"
+              className={"radio-input"}
+              value="Urgent"
+              name="tags"
+              type="radio"
+              placeholder=""
               onChange={() => {}}
-              label={"Date de naissance :"}
+              label={"Urgent"}
               required
             />
-          
-          <InputText
-          value=""
-            name="password"
-            type="password"
-            placeholder="Mot de passe"
-            onChange={() => {}}
-            label={"Mot de passe :"}
-            required
-          />
+            <InputText
+              className={"radio-input"}
+              value="Pas Urgent"
+              name="tags"
+              type="radio"
+              placeholder=""
+              onChange={() => {}}
+              label={"Pas Urgent"}
+              required
+            />
+          </div>
 
-          <ButtonPrimary label="Revenir" onClick={() => setFormulaire(!formulaire)} />
+          <ButtonPrimary
+            label="Revenir"
+            className="button"
+            onClick={() => setFormulaire(!formulaire)}
+          />
         </form>
       </div>
     </AuthFormStyled>
@@ -50,17 +76,17 @@ export default function FormulaireForCard() {
 }
 
 const AuthFormStyled = styled.div`
-  position: fixed; 
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(5px); 
+  backdrop-filter: blur(5px);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000; 
+  z-index: 1000;
 
   .container {
     background-color: white;
@@ -86,5 +112,21 @@ const AuthFormStyled = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  .description {
+    height: 80px;
+    width: 450px;
+  }
+  .radio {
+    display: flex;
+    margin-bottom: 0px;
+
+    .radio-input{
+        width: 100px;
+        display: flex;
+    }
+  }
+  .button{
+    margin-top: 40px;
   }
 `;
