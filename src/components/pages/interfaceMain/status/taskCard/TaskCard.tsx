@@ -9,7 +9,8 @@ interface TaskCardProps {
 }
 
 export default function TaskCard({ task }: TaskCardProps) {
-  const { tache, setTache } = useContext(UserContext);
+  const { tache, setTache, setFormUpdated, setNewTask, newTask } =
+    useContext(UserContext);
   const [expandedTaskId, setExpandedTaskId] = useState<number | null>(null);
 
   const handleDelete = (taskId: number) => {
@@ -20,6 +21,24 @@ export default function TaskCard({ task }: TaskCardProps) {
       task.id === taskId ? { ...task, status: taskStatus } : task
     );
     setTache(updatedTasks);
+  };
+  const handleUpdated = (taskId: number) => {
+    setFormUpdated(true);
+    const CardSelectToUpdated = tache.find((task) => task.id === taskId);
+    if (CardSelectToUpdated) {
+      setNewTask({
+        id: CardSelectToUpdated.id,
+        title: CardSelectToUpdated.title,
+        description: CardSelectToUpdated.description,
+        dueDate: CardSelectToUpdated.dueDate,
+        tags: CardSelectToUpdated.tags,
+        status: CardSelectToUpdated.status,
+      });
+    }
+    const updatedTasks = tache.map((task) =>
+      task.id === taskId ? newTask : task
+    );
+    setTache(updatedTasks); 
   };
 
   const toggleExpand = (taskId: number) => {
@@ -33,6 +52,7 @@ export default function TaskCard({ task }: TaskCardProps) {
       onExpand={toggleExpand}
       onDelete={handleDelete}
       onMove={handleMove}
+      onUpdated={handleUpdated}
     />
   );
 }

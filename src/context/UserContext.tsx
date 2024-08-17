@@ -6,6 +6,10 @@ type UserContextType = {
   setTache: React.Dispatch<React.SetStateAction<TaskType[]>>;
   formulaire: boolean;
   setFormulaire: React.Dispatch<React.SetStateAction<boolean>>;
+  formUpdated: boolean;
+  setFormUpdated: React.Dispatch<React.SetStateAction<boolean>>;
+  newTask : TaskType;
+  setNewTask: React.Dispatch<React.SetStateAction<TaskType>>;
 };
 
 export const UserContext = createContext<UserContextType>({
@@ -13,4 +17,15 @@ export const UserContext = createContext<UserContextType>({
   setTache: () => {},
   formulaire: false,
   setFormulaire: () => {},
+  formUpdated: false,
+  setFormUpdated: () => {},
+  newTask: {
+    id: Date.now(),  
+    title: "",
+    description: "",
+    dueDate: "",
+    tags: "",
+    status: "To Do",
+  },
+  setNewTask : () => {},
 });

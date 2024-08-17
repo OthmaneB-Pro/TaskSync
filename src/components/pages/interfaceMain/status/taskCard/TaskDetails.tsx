@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import ButtonPrimary from "../../../../reusable-ui/ButtonPrimary";
 
-export default function TaskDetails({ task, onDelete, onMove }: any) {
+export default function TaskDetails({ task, onDelete, onMove, onUpdated }: any) {
   return (
     <TaskDetailsStyled className="task-details">
       <p>{task.description}</p>
       <div className="actions">
-        <ButtonPrimary label="Modifier" className="button" onClick={() => {}} />
+        <ButtonPrimary label="Modifier" className="button" onClick={() => onUpdated(task.id)} />
         <ButtonPrimary
           label="Supprimer"
           className="button"

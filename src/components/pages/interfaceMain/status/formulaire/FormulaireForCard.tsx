@@ -1,25 +1,28 @@
 import styled from "styled-components";
 import Title from "../../../../reusable-ui/Title";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { UserContext } from "../../../../../context/UserContext";
 import ButtonPrimary from "../../../../reusable-ui/ButtonPrimary";
 import InputRadio from "./inputForm/InputRadio";
 import FormFields from "./inputForm/FormFields";
 
 export default function FormulaireForCard() {
-  const { tache, setTache, setFormulaire } = useContext(UserContext);
-  const [newTask, setNewTask] = useState({
-    id: Date.now(),
-    title: "",
-    description: "",
-    dueDate: "",
-    tags: "",
-    status: "To Do",
-  });
+  const { tache, setTache, formulaire, setFormulaire, setFormUpdated, newTask, setNewTask } = useContext(UserContext);
+  
+
   const handleAddTask = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setTache([newTask, ...tache]);
     setFormulaire(false);
+    setFormUpdated(false)
+    setNewTask({
+      id: Date.now(),
+      title: "",
+      description: "",
+      dueDate: "",
+      tags: "",
+      status: "To Do",
+    });
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,7 +36,7 @@ export default function FormulaireForCard() {
   return (
     <AuthFormStyled>
       <div className="container">
-        <Title label={"Ajouter une tâche"} />
+        <Title label={formulaire ? "Ajouter une tâche" : "Modifier la tache"} />
         <form onSubmit={handleAddTask}>
           <FormFields newTask={newTask} onChange={handleChange} />
           <InputRadio newTask={newTask} onChange={handleChange} />
