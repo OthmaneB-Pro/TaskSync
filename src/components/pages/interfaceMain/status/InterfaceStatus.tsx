@@ -1,20 +1,35 @@
 import styled from "styled-components";
 import TaskCard from "./TaskCard";
+import { useContext } from "react";
+import { UserContext } from "../../../../context/UserContext";
 
 export default function InterfaceStatus() {
+  const { tache } = useContext(UserContext);
   return (
     <InterfaceStyled className="interface">
       <div className="list">
         <h2>To Do</h2>
-        <TaskCard />
+        {tache
+          .filter((task) => task.status === "To Do")
+          .map((task) => (
+            <TaskCard key={task.id} task={task} />
+          ))}
       </div>
       <div className="list">
         <h2>Doing</h2>
-        <TaskCard />
+        {tache
+          .filter((task) => task.status === "Doing")
+          .map((task) => (
+            <TaskCard key={task.id} task={task} />
+          ))}
       </div>
       <div className="list">
         <h2>Done</h2>
-        <TaskCard />
+        {tache
+          .filter((task) => task.status === "Done")
+          .map((task) => (
+            <TaskCard key={task.id} task={task} />
+          ))}
       </div>
     </InterfaceStyled>
   );

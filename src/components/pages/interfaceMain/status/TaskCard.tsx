@@ -1,32 +1,31 @@
 import { useState } from "react";
-import { tasks } from "../../../../fakeData/fakeTask";
 import CardPrimary from "../../../reusable-ui/CardPrimary";
 import { TaskType } from "../../../reusable-type/TaskCard";
+import { useContext } from "react";
+import { UserContext } from "../../../../context/UserContext";
 
-export default function TaskList() {
-  const [tache, setTache] = useState<TaskType[]>(tasks)
+interface TaskCardProps {
+  task: TaskType;
+}
+
+export default function TaskCard({ task }: TaskCardProps) {
+  const { tache, setTache } = useContext(UserContext);
   const [expandedTaskId, setExpandedTaskId] = useState<number | null>(null);
 
-  const handleDelete = (taskId : number) => {
-     setTache(tache.filter((idProduct) => taskId !== idProduct.id))
-  }
-
+  const handleDelete = (taskId: number) => {
+    setTache(tache.filter((task) => taskId !== task.id));
+  };
 
   const toggleExpand = (taskId: number) => {
     setExpandedTaskId(expandedTaskId === taskId ? null : taskId);
   };
-  
+
   return (
-    <div>
-      {tache.map((task: TaskType) => (
-        <CardPrimary
-          key={task.id}
-          task={task}
-          isExpanded={expandedTaskId === task.id}
-          onExpand={toggleExpand}
-          onDelete={handleDelete}
-        />
-      ))}
-    </div>
+    <CardPrimary
+      task={task}
+      isExpanded={expandedTaskId === task.id}
+      onExpand={toggleExpand}
+      onDelete={handleDelete}
+    />
   );
 }
