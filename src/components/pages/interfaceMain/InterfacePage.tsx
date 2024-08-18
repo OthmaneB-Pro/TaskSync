@@ -18,24 +18,23 @@ export default function InterfacePage() {
     setFormUpdated,
     newTask,
     setNewTask,
+    onAdd,
     onDelete,
     onMove,
     onUpdated,
   } = useTask();
 
-  const {username} = useParams()
+  const { username } = useParams();
 
   const initialiseTask = async () => {
-    const taskReceived = await getTask(username as string)
-    console.log(taskReceived)
-    setTache(taskReceived)}
-  
+    const taskReceived = await getTask(username as string);
+    console.log(taskReceived);
+    setTache(taskReceived);
+  };
 
   useEffect(() => {
-    initialiseTask()
-  }, [])
-
-
+    initialiseTask();
+  }, []);
 
   const UserContextValue = {
     tache,
@@ -46,6 +45,7 @@ export default function InterfacePage() {
     setFormUpdated,
     newTask,
     setNewTask,
+    onAdd,
     onDelete,
     onMove,
     onUpdated,
@@ -55,8 +55,7 @@ export default function InterfacePage() {
       <InterfacePageStyled>
         <div className="container">
           <Navbar />
-          {formulaire && <FormulaireForCard />}
-          {formUpdated && <FormulaireForCard />}
+          {(formulaire || formUpdated) && <FormulaireForCard />}
           <div className="menu">
             <div className="project">Projet</div>
             <InterfaceStatus />

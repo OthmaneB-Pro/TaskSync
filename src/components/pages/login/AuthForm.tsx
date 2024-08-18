@@ -25,7 +25,6 @@ export default function AuthForm({ isSignUp }: { isSignUp: boolean }) {
     } else {
       alert(result.message);
     }
-    
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
