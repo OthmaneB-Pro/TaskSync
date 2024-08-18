@@ -4,6 +4,9 @@ import Navbar from "./navbar/Navbar";
 import { UserContext } from "../../../context/UserContext";
 import FormulaireForCard from "./status/formulaire/FormForCard";
 import { useTask } from "../../../hooks/useTask";
+import { useEffect } from "react";
+import { useParams } from "react-router";
+import { getTask } from "../../../api/task";
 
 export default function InterfacePage() {
   const {
@@ -19,6 +22,19 @@ export default function InterfacePage() {
     onMove,
     onUpdated,
   } = useTask();
+
+  const {username} = useParams()
+
+  const initialiseTask = async () => {
+    const taskReceived = await getTask(username as string)
+    setTache(taskReceived)}
+  
+
+  useEffect(() => {
+    initialiseTask()
+  }, [])
+
+
 
   const UserContextValue = {
     tache,

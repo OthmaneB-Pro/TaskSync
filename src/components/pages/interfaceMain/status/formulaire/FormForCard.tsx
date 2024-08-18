@@ -5,6 +5,8 @@ import { UserContext } from "../../../../../context/UserContext";
 import ButtonPrimary from "../../../../reusable-ui/ButtonPrimary";
 import InputRadio from "./inputForm/InputRadio";
 import FormFields from "./inputForm/FormFields";
+import { syncTasks } from "../../../../../api/task";
+import { useParams } from "react-router";
 
 export default function FormulaireForCard() {
   const {
@@ -18,6 +20,7 @@ export default function FormulaireForCard() {
     setNewTask,
   } = useContext(UserContext);
   const formRef = useRef<HTMLDivElement>(null);
+  const {username} = useParams()
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -52,6 +55,7 @@ export default function FormulaireForCard() {
       tags: "",
       status: "To Do",
     });
+    syncTasks(username as string, newTask)
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

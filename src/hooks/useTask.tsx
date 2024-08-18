@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { TaskType } from "../components/reusable-type/TaskCard";
 import { empty_tasks } from "../fakeData/fakeTask";
+import { syncTasks } from "../api/task";
+import { useParams } from "react-router";
 
 export const useTask = () => {
   const [tache, setTache] = useState<TaskType[]>(empty_tasks);
@@ -15,8 +17,9 @@ export const useTask = () => {
     status: "To Do",
   });
 
-  const onDelete = (taskId: number) => {
+  const onDelete = (taskId: number, username : string) => {
     setTache(tache.filter((task) => taskId !== task.id));
+    syncTasks(username, newTask)
   };
 
   const onMove = (taskId: number, taskStatus: string) => {
