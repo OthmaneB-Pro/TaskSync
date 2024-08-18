@@ -37,14 +37,15 @@ export default function FormulaireForCard() {
 
   const handleAddTask = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    let updatedTasks;
     if (formUpdated) {
-      const updatedTasks = tache.map((task) =>
+      updatedTasks = tache.map((task) =>
         task.id === newTask.id ? newTask : task
       );
-      setTache(updatedTasks);
     } else {
-      setTache([newTask, ...tache]);
+      updatedTasks = [newTask, ...tache];
     }
+    setTache(updatedTasks);
     setFormulaire(false);
     setFormUpdated(false);
     setNewTask({
@@ -55,7 +56,8 @@ export default function FormulaireForCard() {
       tags: "",
       status: "To Do",
     });
-    syncTasks(username as string, newTask)
+    syncTasks(username as string, updatedTasks)
+
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

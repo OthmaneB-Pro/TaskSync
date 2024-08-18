@@ -1,44 +1,23 @@
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "./firebase-config";
 import { TaskType } from "../components/reusable-type/TaskCard";
 
-export const syncTasks = async (idUser: string, newTask: TaskType) => {
+export const syncTasks = async (idUser: string, tasksUpdated: TaskType[]) => {
   const docRef = doc(db, "users", idUser);
-  const docSnapShot = await getDoc(docRef);
-  let tasksArray: TaskType[] = [];
-
-  if (docSnapShot.exists()) {
-    const data = docSnapShot.data();
-    tasksArray = Array.isArray(data?.task) ? data.task : [];
+  const newQuelque = {
+    username : idUser,
+    task : tasksUpdated,
   }
-  tasksArray = [...tasksArray, newTask];
-
-  await updateDoc(docRef, {
-    task: tasksArray,
-  });
+  setDoc(docRef, newQuelque)
 };
 
-export const getTask = async (idUser: string): Promise<TaskType[]> => {
-  try {
-    const docRef = doc(db, "users", idUser);
-    const docSnapShot = await getDoc(docRef);
 
-    if (docSnapShot.exists()) {
-      const data = docSnapShot.data();
-      const task = data?.task;
+export const getTask = async (idUser : string) => {
+    const docRef = doc(db, "users", idUser)
+    const docSnapShot = await getDoc(docRef)
 
-      if (Array.isArray(task)) {
-        return task as TaskType[];
-      } else if (task) {
-        return [task as TaskType];
-      } else {
-        return [];
-      }
-    } else {
-      return [];
+    if(docSnapShot.exists()){
+        const {task} = docSnapShot.data()
+        return task
     }
-  } catch (error) {
-    console.error("Erreur lors de la récupération des tâches :", error);
-    return [];
-  }
-};
+}
