@@ -33,3 +33,13 @@ export const tasks = [
       },
   ];
   
+export const empty_tasks = [
+  {
+    id: Date.now(),
+    title: "",
+    description: "",
+    dueDate: "",
+    tags: "",
+    status: "",
+  }
+]

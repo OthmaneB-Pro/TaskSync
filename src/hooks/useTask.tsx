@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { TaskType } from "../components/reusable-type/TaskCard";
-import { tasks } from "../fakeData/fakeTask";
+import { empty_tasks } from "../fakeData/fakeTask";
 
 export const useTask = () => {
-  const [tache, setTache] = useState<TaskType[]>(tasks);
+  const [tache, setTache] = useState<TaskType[]>(empty_tasks);
   const [formulaire, setFormulaire] = useState(false);
   const [formUpdated, setFormUpdated] = useState(false);
   const [newTask, setNewTask] = useState<TaskType>({
