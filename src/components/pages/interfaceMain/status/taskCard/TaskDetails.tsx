@@ -1,19 +1,22 @@
 import styled from "styled-components";
-import { TaskType } from "../../../../reusable-type/TaskCard";
 import TaskActions from "./function/TaskActions";
+import { TaskDetailsType } from "../../../../reusable-type/TaskCard";
 
-type TaskDetailsType = {
-  task: TaskType;
-  onDelete: (id: number, username : string) => void;
-  onMove: (id: number, status: string, username: string) => void;
-  onUpdated: (id: number) => void;
-}
-
-export default function TaskDetails({ task, onDelete, onMove, onUpdated }: TaskDetailsType) {
+export default function TaskDetails({
+  task,
+  onDelete,
+  onMove,
+  onUpdated,
+}: TaskDetailsType) {
   return (
     <TaskDetailsStyled className="task-details">
       <p>{task.description}</p>
-      <TaskActions task={task} onDelete={onDelete} onMove={onMove} onUpdated={onUpdated} />
+      <TaskActions
+        task={task}
+        onDelete={onDelete}
+        onMove={onMove}
+        onUpdated={onUpdated}
+      />
     </TaskDetailsStyled>
   );
 }

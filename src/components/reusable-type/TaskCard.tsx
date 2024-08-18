@@ -15,3 +15,10 @@ export type TaskCardType = {
   onMove: (id: number, status: string, username: string) => void;
   onUpdated: (id: number) => void;
 };
+
+export type TaskDetailsType = {
+  task: TaskType;
+  onDelete: (id: number, username: string) => void;
+  onMove: (id: number, status: string, username: string) => void;
+  onUpdated: (id: number) => void;
+};

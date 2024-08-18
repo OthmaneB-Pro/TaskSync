@@ -13,6 +13,7 @@ export default function AuthForm({ isSignUp }: { isSignUp: boolean }) {
     date: isSignUp ? "" : undefined,
   });
   const navigate = useNavigate();
+  
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (isSignUp) {
