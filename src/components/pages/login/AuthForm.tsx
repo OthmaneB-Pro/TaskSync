@@ -4,7 +4,7 @@ import styled from "styled-components";
 import InputText from "../../reusable-ui/InputText";
 import ButtonPrimary from "../../reusable-ui/ButtonPrimary";
 import Title from "../../reusable-ui/Title";
-import { createUser } from "../../../api/user";
+import { createUser, verifyUser } from "../../../api/user";
 
 export default function AuthForm({ isSignUp }: { isSignUp: boolean }) {
   const [user, setUser] = useState({
@@ -18,7 +18,14 @@ export default function AuthForm({ isSignUp }: { isSignUp: boolean }) {
     if (isSignUp) {
       await createUser(user.username, user.password, user.date);
     }
-    navigate(`/interface/${user.username}`);
+    const result = await verifyUser(user.username, user.password);
+
+    if (result.success) {
+      navigate(`/interface/${user.username}`);
+    } else {
+      alert(result.message);
+    }
+    
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

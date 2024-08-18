@@ -7,7 +7,7 @@ export const getUser = async (idUser : string) => {
     const docSnapShot = await getDoc(docRef)
 
     if(docSnapShot.exists()){
-        const result = docSnapShot.data()
+        docSnapShot.data()
     }
 }
 
@@ -22,3 +22,29 @@ export const createUser = async (idUser : string, password : string, date : any)
    
     setDoc(docRef, newDoc)
 }
+
+
+export const verifyUser = async (idUser: string, password: string) => {
+      const docRef = doc(db, "users", idUser);
+      const docSnapShot = await getDoc(docRef);
+  
+      if (docSnapShot.exists()) {
+        const userData = docSnapShot.data();
+        
+        if (userData.password === password) {
+          return {
+            success: true,
+          };
+        } else {
+          return {
+            success: false,
+            message: "Mot de passe incorrect",
+          };
+        }
+      } else {
+        return {
+          success: false,
+          message: "Le Nom est incorrect",
+        };
+      }
+  };
