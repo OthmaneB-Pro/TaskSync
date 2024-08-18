@@ -9,6 +9,7 @@ export default function InputText({
   onChange,
   label,
   required,
+  className,
 }: InputTextType) {
   return (
     <InputTextStyled>
@@ -20,6 +21,7 @@ export default function InputText({
         placeholder={placeholder}
         onChange={onChange}
         required={required}
+        className={className}
       ></input>
     </InputTextStyled>
   );

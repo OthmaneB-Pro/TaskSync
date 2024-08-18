@@ -3,7 +3,7 @@ export type TaskType = {
     title: string;
     description: string;
     dueDate: string;
-    tags: string[];
+    tags: string;
     status: string;
   };
   
@@ -11,5 +11,8 @@ export type TaskType = {
     task: TaskType;
     onExpand: (id: number) => void;
     isExpanded: boolean;
+    onDelete : (id: number) => void ;
+    onMove: (id: number, status: string) => void;
+    onUpdated : (id: number) => void ;
   };
   

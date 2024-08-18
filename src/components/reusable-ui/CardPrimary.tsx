@@ -1,25 +1,29 @@
 import styled from "styled-components";
-import TaskDetails from "../pages/interfaceMain/status/TaskDetails";
+import TaskDetails from "../pages/interfaceMain/status/taskCard/TaskDetails";
 import { TaskCardType } from "../reusable-type/TaskCard";
+import { formatDate } from "../../utils/FormatDate";
 
 export default function CardPrimary({
   task,
   onExpand,
   isExpanded,
+  onDelete,
+  onMove,
+  onUpdated,
 }: TaskCardType) {
   return (
     <CardStyled>
       <div className="task-header" onClick={() => onExpand(task.id)}>
         <h3>{task.title}</h3>
-        <p>Date limite : {task.dueDate}</p>
+        <p>Date limite : {formatDate(new Date(task.dueDate))}</p>
         <div className="tags">
-          {task.tags.map((tag, index) => (
-            <span key={index}>{tag}</span>
-          ))}
+          <span>{task.tags}</span>
         </div>
       </div>
 
-      {isExpanded && <TaskDetails task={task} />}
+      {isExpanded && (
+        <TaskDetails task={task} onDelete={onDelete} onMove={onMove} onUpdated={onUpdated} />
+      )}
     </CardStyled>
   );
 }

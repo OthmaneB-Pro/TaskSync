@@ -6,4 +6,5 @@ export type InputTextType = {
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     label: string;
     required: boolean;
+    className?: string;
 };

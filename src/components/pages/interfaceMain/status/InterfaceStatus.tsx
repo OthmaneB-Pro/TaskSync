@@ -1,21 +1,12 @@
 import styled from "styled-components";
-import TaskCard from "./TaskCard";
+import TaskList from "./taskCard/function/TaskList";
 
 export default function InterfaceStatus() {
   return (
     <InterfaceStyled className="interface">
-      <div className="list">
-        <h2>To Do</h2>
-        <TaskCard />
-      </div>
-      <div className="list">
-        <h2>Doing</h2>
-        <TaskCard />
-      </div>
-      <div className="list">
-        <h2>Done</h2>
-        <TaskCard />
-      </div>
+      <TaskList title="To Do" status="To Do" />
+      <TaskList title="Doing" status="Doing" />
+      <TaskList title="Done" status="Done" />
     </InterfaceStyled>
   );
 }
@@ -30,7 +21,7 @@ const InterfaceStyled = styled.div`
     width: 370px;
     height: 550px;
     border-radius: 5px;
-    background-color: #3755167d;
+    background-color: #e0e0de79;
     margin-left: 30px;
     margin-top: 30px;
     overflow-y: scroll;
