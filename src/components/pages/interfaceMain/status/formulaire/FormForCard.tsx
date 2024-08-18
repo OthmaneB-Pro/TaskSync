@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Title from "../../../../reusable-ui/Title";
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { UserContext } from "../../../../../context/UserContext";
 import ButtonPrimary from "../../../../reusable-ui/ButtonPrimary";
 import InputRadio from "./inputForm/InputRadio";
@@ -17,6 +17,20 @@ export default function FormulaireForCard() {
     newTask,
     setNewTask,
   } = useContext(UserContext);
+  const formRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (formRef.current && !formRef.current.contains(event.target as Node)) {
+        setFormulaire(false);
+        setFormUpdated(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [setFormulaire, setFormUpdated]);
 
   const handleAddTask = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -50,13 +64,13 @@ export default function FormulaireForCard() {
 
   return (
     <AuthFormStyled>
-      <div className="container">
+      <div className="container" ref={formRef}>
         <Title label={formulaire ? "Ajouter une tâche" : "Modifier la tache"} />
         <form onSubmit={handleAddTask}>
           <FormFields newTask={newTask} onChange={handleChange} />
           <InputRadio newTask={newTask} onChange={handleChange} />
           <ButtonPrimary
-            label="Revenir"
+            label="Valider"
             className="button"
             onClick={() => {}}
           />
