@@ -10,13 +10,14 @@ export default function ProjectPage() {
       {iconConfig.map((img) => (
         <IconButton src={img.src} alt={img.alt} />
       ))}
-
       <ButtonPrimary
         label=""
         onClick={() => {}}
         Icon={<IoMdAdd />}
         className="button-add"
       />
+      {/* Continuez le code, ajoutez la fonctionnalité pour passer d'un projet à l'autre avec les boutons.
+      Ajoutez également qu'avec le bouton +, un formulaire s'ouvre pour ajouter une icône et donc un projet.*/}
     </ProjectPageStyled>
   );
 }
