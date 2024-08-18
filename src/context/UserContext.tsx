@@ -8,8 +8,11 @@ type UserContextType = {
   setFormulaire: React.Dispatch<React.SetStateAction<boolean>>;
   formUpdated: boolean;
   setFormUpdated: React.Dispatch<React.SetStateAction<boolean>>;
-  newTask : TaskType;
+  newTask: TaskType;
   setNewTask: React.Dispatch<React.SetStateAction<TaskType>>;
+  onDelete : (taskId: number) => void,
+  onMove : (taskId: number, taskStatus: string) => void,
+  onUpdated : (taskId: number) => void,
 };
 
 export const UserContext = createContext<UserContextType>({
@@ -20,12 +23,15 @@ export const UserContext = createContext<UserContextType>({
   formUpdated: false,
   setFormUpdated: () => {},
   newTask: {
-    id: Date.now(),  
+    id: Date.now(),
     title: "",
     description: "",
     dueDate: "",
     tags: "",
     status: "To Do",
   },
-  setNewTask : () => {},
+  setNewTask: () => {},
+  onDelete: () => {},
+  onMove: () => {},
+  onUpdated: () => {},
 });

@@ -1,24 +1,24 @@
 import styled from "styled-components";
 import InterfaceStatus from "./status/InterfaceStatus";
 import Navbar from "./navbar/Navbar";
-import { tasks } from "../../../fakeData/fakeTask";
-import { useState } from "react";
-import { TaskType } from "../../reusable-type/TaskCard";
 import { UserContext } from "../../../context/UserContext";
 import FormulaireForCard from "./status/formulaire/FormForCard";
+import { useTask } from "../../../hooks/useTask";
 
 export default function InterfacePage() {
-  const [tache, setTache] = useState<TaskType[]>(tasks);
-  const [formulaire, setFormulaire] = useState(false);
-  const [formUpdated, setFormUpdated] = useState(false);
-  const [newTask, setNewTask] = useState<TaskType>({
-    id: Date.now(),
-    title: "",
-    description: "",
-    dueDate: "",
-    tags: "",
-    status: "To Do",
-  });
+  const {
+    tache,
+    setTache,
+    formulaire,
+    setFormulaire,
+    formUpdated,
+    setFormUpdated,
+    newTask,
+    setNewTask,
+    onDelete,
+    onMove,
+    onUpdated,
+  } = useTask();
 
   const UserContextValue = {
     tache,
@@ -29,6 +29,9 @@ export default function InterfacePage() {
     setFormUpdated,
     newTask,
     setNewTask,
+    onDelete,
+    onMove,
+    onUpdated,
   };
   return (
     <UserContext.Provider value={UserContextValue}>

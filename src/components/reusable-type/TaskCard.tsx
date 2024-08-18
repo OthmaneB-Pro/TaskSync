@@ -12,7 +12,7 @@ export type TaskType = {
     onExpand: (id: number) => void;
     isExpanded: boolean;
     onDelete : (id: number) => void ;
-    onMove : (id : number, status : string) => void ;
+    onMove: (id: number, status: string) => void;
     onUpdated : (id: number) => void ;
   };
   
