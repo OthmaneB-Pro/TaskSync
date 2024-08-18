@@ -27,6 +27,7 @@ export default function InterfacePage() {
 
   const initialiseTask = async () => {
     const taskReceived = await getTask(username as string)
+    console.log(taskReceived)
     setTache(taskReceived)}
   
 

@@ -17,16 +17,18 @@ export const useTask = () => {
     status: "To Do",
   });
 
-  const onDelete = (taskId: number, username : string) => {
-    setTache(tache.filter((task) => taskId !== task.id));
-    syncTasks(username, newTask)
+  const onDelete = (taskId: number, username: string) => {
+    const updatedTasks = tache.filter((task) => taskId !== task.id);
+    setTache(updatedTasks);
+    syncTasks(username, updatedTasks);
   };
 
-  const onMove = (taskId: number, taskStatus: string) => {
+  const onMove = (taskId: number, taskStatus: string, username: string) => {
     const updatedTasks = tache.map((task) =>
       task.id === taskId ? { ...task, status: taskStatus } : task
     );
     setTache(updatedTasks);
+    syncTasks(username, updatedTasks); 
   };
 
   const onUpdated = (taskId: number) => {

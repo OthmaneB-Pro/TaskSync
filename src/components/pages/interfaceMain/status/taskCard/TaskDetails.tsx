@@ -4,8 +4,8 @@ import TaskActions from "./function/TaskActions";
 
 type TaskDetailsType = {
   task: TaskType;
-  onDelete: (id: number) => void;
-  onMove: (id: number, status: string) => void;
+  onDelete: (id: number, username : string) => void;
+  onMove: (id: number, status: string, username: string) => void;
   onUpdated: (id: number) => void;
 }
 
