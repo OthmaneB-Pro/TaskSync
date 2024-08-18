@@ -10,7 +10,6 @@ export default function App() {
         <Route path={"*"} element={<ErrorPage />} />
         <Route path={"/"} element={<LoginPage />} />
         <Route path={"/interface/:username"} element={<InterfacePage />} />
-
       </Routes>
     </BrowserRouter>
   );
