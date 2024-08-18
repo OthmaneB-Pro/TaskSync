@@ -4,6 +4,7 @@ import styled from "styled-components";
 import InputText from "../../reusable-ui/InputText";
 import ButtonPrimary from "../../reusable-ui/ButtonPrimary";
 import Title from "../../reusable-ui/Title";
+import { createUser, verifyUser } from "../../../api/user";
 
 export default function AuthForm({ isSignUp }: { isSignUp: boolean }) {
   const [user, setUser] = useState({
@@ -12,10 +13,19 @@ export default function AuthForm({ isSignUp }: { isSignUp: boolean }) {
     date: isSignUp ? "" : undefined,
   });
   const navigate = useNavigate();
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    navigate(`/interface/${user.username}`);
+    if (isSignUp) {
+      await createUser(user.username, user.password, user.date);
+    }
+    const result = await verifyUser(user.username, user.password);
+
+    if (result.success) {
+      navigate(`/interface/${user.username}`);
+    } else {
+      alert(result.message);
+    }
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

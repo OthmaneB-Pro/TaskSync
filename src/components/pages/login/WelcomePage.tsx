@@ -3,7 +3,7 @@ import styled from "styled-components";
 import AuthForm from "./AuthForm";
 import Title from "../../reusable-ui/Title";
 import ButtonPrimary from "../../reusable-ui/ButtonPrimary";
-import Paragraph from "../../reusable-ui/Paragraph";
+import Paragraph from "./Paragraph";
 
 export default function WelcomePage() {
   const [formType, setFormType] = useState("");
@@ -18,13 +18,7 @@ export default function WelcomePage() {
   return (
     <LoginFormStyled>
       <Title label="Bienvenue sur TaskSync !" />
-      <Paragraph
-        text="Votre solution tout-en-un pour organiser et synchroniser vos tâches.
-        Gérez facilement vos projets, suivez vos progrès et collaborez en temps
-        réel, le tout depuis un seul endroit. Restez productif et simplifiez
-        votre quotidien avec TaskSync !"
-      />
-      <Paragraph text="Connectez-vous ! Pas encore de compte ? Inscrivez-vous" />
+      <Paragraph />
       <ButtonPrimary
         onClick={() => {
           setFormType("inscription");

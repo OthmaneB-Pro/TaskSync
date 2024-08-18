@@ -22,7 +22,12 @@ export default function CardPrimary({
       </div>
 
       {isExpanded && (
-        <TaskDetails task={task} onDelete={onDelete} onMove={onMove} onUpdated={onUpdated} />
+        <TaskDetails
+          task={task}
+          onDelete={onDelete}
+          onMove={onMove}
+          onUpdated={onUpdated}
+        />
       )}
     </CardStyled>
   );

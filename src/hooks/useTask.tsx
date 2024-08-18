@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { TaskType } from "../components/reusable-type/TaskCard";
-import { tasks } from "../fakeData/fakeTask";
+import { empty_tasks } from "../fakeData/fakeTask";
+import { syncTasks } from "../api/task";
 
 export const useTask = () => {
-  const [tache, setTache] = useState<TaskType[]>(tasks);
+  const [tache, setTache] = useState<TaskType[]>(empty_tasks);
   const [formulaire, setFormulaire] = useState(false);
   const [formUpdated, setFormUpdated] = useState(false);
   const [newTask, setNewTask] = useState<TaskType>({
@@ -14,16 +15,41 @@ export const useTask = () => {
     tags: "",
     status: "To Do",
   });
-
-  const onDelete = (taskId: number) => {
-    setTache(tache.filter((task) => taskId !== task.id));
+  const onAdd = (username: string) => {
+    let updatedTasks;
+    if (formUpdated) {
+      updatedTasks = tache.map((task) =>
+        task.id === newTask.id ? newTask : task
+      );
+    } else {
+      updatedTasks = [newTask, ...tache];
+    }
+    setTache(updatedTasks);
+    setFormulaire(false);
+    setFormUpdated(false);
+    setNewTask({
+      id: Date.now(),
+      title: "",
+      description: "",
+      dueDate: "",
+      tags: "",
+      status: "To Do",
+    });
+    syncTasks(username, updatedTasks);
   };
 
-  const onMove = (taskId: number, taskStatus: string) => {
+  const onDelete = (taskId: number, username: string) => {
+    const updatedTasks = tache.filter((task) => taskId !== task.id);
+    setTache(updatedTasks);
+    syncTasks(username, updatedTasks);
+  };
+
+  const onMove = (taskId: number, taskStatus: string, username: string) => {
     const updatedTasks = tache.map((task) =>
       task.id === taskId ? { ...task, status: taskStatus } : task
     );
     setTache(updatedTasks);
+    syncTasks(username, updatedTasks);
   };
 
   const onUpdated = (taskId: number) => {
@@ -49,6 +75,7 @@ export const useTask = () => {
     setFormUpdated,
     newTask,
     setNewTask,
+    onAdd,
     onDelete,
     onMove,
     onUpdated,

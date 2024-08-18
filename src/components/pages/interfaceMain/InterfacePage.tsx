@@ -4,6 +4,9 @@ import Navbar from "./navbar/Navbar";
 import { UserContext } from "../../../context/UserContext";
 import FormulaireForCard from "./status/formulaire/FormForCard";
 import { useTask } from "../../../hooks/useTask";
+import { useCallback, useEffect } from "react";
+import { useParams } from "react-router";
+import { getTask } from "../../../api/task";
 
 export default function InterfacePage() {
   const {
@@ -15,10 +18,22 @@ export default function InterfacePage() {
     setFormUpdated,
     newTask,
     setNewTask,
+    onAdd,
     onDelete,
     onMove,
     onUpdated,
   } = useTask();
+
+  const { username } = useParams();
+
+  const initialiseTask = useCallback(async () => {
+    const taskReceived = await getTask(username as string);
+    setTache(taskReceived);
+  }, [username, setTache]);
+
+  useEffect(() => {
+    initialiseTask();
+  }, [initialiseTask]);
 
   const UserContextValue = {
     tache,
@@ -29,6 +44,7 @@ export default function InterfacePage() {
     setFormUpdated,
     newTask,
     setNewTask,
+    onAdd,
     onDelete,
     onMove,
     onUpdated,
@@ -38,8 +54,7 @@ export default function InterfacePage() {
       <InterfacePageStyled>
         <div className="container">
           <Navbar />
-          {formulaire && <FormulaireForCard />}
-          {formUpdated && <FormulaireForCard />}
+          {(formulaire || formUpdated) && <FormulaireForCard />}
           <div className="menu">
             <div className="project">Projet</div>
             <InterfaceStatus />

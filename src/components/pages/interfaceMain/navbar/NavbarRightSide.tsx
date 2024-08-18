@@ -20,7 +20,6 @@ export default function NavbarRightSide() {
         Icon={<IoMdAdd />}
         onClick={() => setFormulaire(!formulaire)} 
       />
-      {/*Il faut que le bouton ouvre le formulaire, et dans le formualaire on fait le onAddTasks*/}
       <ButtonPrimary
         className="button-deconnexion"
         label="Déconnexion"
