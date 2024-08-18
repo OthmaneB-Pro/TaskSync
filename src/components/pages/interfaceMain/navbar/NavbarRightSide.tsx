@@ -24,7 +24,7 @@ export default function NavbarRightSide() {
         className="button-deconnexion"
         label="Déconnexion"
         onClick={() => {
-          if(window.confirm("Etes vous sur")){
+          if(window.confirm("Êtes-vous sur de vouloir vous déconnecter ?")){
           navigate("/");}
         }}
       />

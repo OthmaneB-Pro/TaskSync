@@ -7,6 +7,7 @@ import { useTask } from "../../../hooks/useTask";
 import { useCallback, useEffect } from "react";
 import { useParams } from "react-router";
 import { getTask } from "../../../api/task";
+import ProjectPage from "./projet/ProjectPage";
 
 export default function InterfacePage() {
   const {
@@ -56,7 +57,7 @@ export default function InterfacePage() {
           <Navbar />
           {(formulaire || formUpdated) && <FormulaireForCard />}
           <div className="menu">
-            <div className="project">Projet</div>
+            <ProjectPage/>
             <InterfaceStatus />
           </div>
         </div>
@@ -87,9 +88,6 @@ const InterfacePageStyled = styled.div`
       display: grid;
       grid-template-columns: 80px 1fr;
       height: 100vh;
-      .project {
-        background-color: #3755167d;
-      }
     }
   }
 `;
