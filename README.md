@@ -1,46 +1,53 @@
-# Getting Started with Create React App
+# TaskSync
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description du projet
+**TaskSync** est une application web de gestion de tâches conçue pour offrir une expérience intuitive et fluide, avec des fonctionnalités inspirées de Trello. L’objectif est de fournir un outil performant pour organiser, suivre, et prioriser les tâches, facilitant ainsi une meilleure gestion de projets.
 
-## Available Scripts
+### Problématique
+Comment créer un outil de gestion de tâches performant, intuitif et modulable, permettant aux utilisateurs de suivre facilement l'évolution de leurs projets ?
 
-In the project directory, you can run:
+## Fonctionnalités principales
+- **Gestion des tâches type "to-do list" :** Organisation des tâches avec des fonctionnalités inspirées de Trello.
+- **Centralisation des données avec Context API :** Gestion efficace des données à travers les différents composants de l'application.
+- **Navigation fluide avec React Router :** Accès rapide aux différentes sections, telles que les listes de tâches ou la connexion.
+- **Interface intuitive et modulaire :** Design ergonomique permettant une gestion simplifiée des tâches et une réorganisation aisée.
 
-### `npm start`
+## Technologies utilisées
+- **React & TypeScript :** Utilisés pour la création de l'interface utilisateur et la gestion de la logique métier.
+- **Context API :** Gestion centralisée des données des tâches, facilitant leur partage entre les composants.
+- **React Router :** Gère la navigation entre les différentes sections de l'application.
+- **CSS & Responsive Design :** Pour une expérience utilisateur optimisée sur tous les types d'écrans.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installation et exécution
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Clonez ce dépôt sur votre machine locale :
+    ```bash
+    git clone https://github.com/votre-compte/TaskSync.git
+    ```
+2. Accédez au répertoire du projet :
+    ```bash
+    cd TaskSync
+    ```
+3. Installez les dépendances nécessaires :
+    ```bash
+    npm install
+    ```
+4. Exécutez l'application :
+    ```bash
+    npm start
+    ```
 
-### `npm test`
+L'application sera accessible à l'adresse : `http://localhost:3000`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Structure du projet
+- **/src** : Contient l'ensemble des fichiers source de l'application.
+- **/components** : Composants React utilisés dans l'application.
+- **/context** : Logique du Context API pour gérer les tâches.
 
-### `npm run build`
+## Capture d'écran de l'interface utilisateur
+![Capture d'écran - Page d'accueil](https://github.com/OthmaneB-Pro/TaskSync/raw/main/public/img/taskSync.PNG)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Capture d'écran - Page d'ajout de tâches](https://github.com/OthmaneB-Pro/TaskSync/raw/main/public/img/taskSync2.PNG)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Résultat
+**TaskSync** est une application intuitive et modulaire, facilitant la gestion et le suivi des tâches au quotidien. Grâce à sa navigation fluide et ses fonctionnalités centralisées, elle permet une gestion efficace des priorités et une meilleure organisation des projets.
